@@ -1,0 +1,26 @@
+#######################
+#### CTYPE: HEADER ####
+#######################
+
+tt_content.header >
+tt_content.header = FLUIDTEMPLATE
+tt_content.header {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Header
+    templateRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Templates/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.templateRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Partials/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Layouts/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.layoutRootPath}
+    }
+
+}

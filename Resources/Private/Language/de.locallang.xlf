@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
+          product-name="kastenhuber_theme">
+        <header/>
+        <body>
+
+            <trans-unit id="skiptomaincontent">
+                <source>Skip to main content</source>
+                <target>Zum Hauptcontent wechseln</target>
+            </trans-unit>
+
+            <trans-unit id="previous">
+                <source>Previous</source>
+                <target>zurück</target>
+            </trans-unit>
+
+            <trans-unit id="next">
+                <source>Next</source>
+                <target>weiter</target>
+            </trans-unit>
+
+            <trans-unit id="externalmediaunsupported">
+                <source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
+            </trans-unit>
+            <trans-unit id="quote.cart">
+                <source>Cart</source>
+                <target>Warenkorb</target>
+            </trans-unit>
+            <trans-unit id="quote.cartTitle">
+                <source>Your Items</source>
+                <target>Ihre Artikel</target>
+            </trans-unit>
+            <trans-unit id="quote.send">
+                <source>Send</source>
+                <target>Senden</target>
+            </trans-unit>
+            <trans-unit id="quote.addToCart">
+                <source>In Warenkorb legen</source>
+                <target>In den Warenkorb legen</target>
+            </trans-unit>
+            <trans-unit id="quote.pricePerItem">
+                <source>€ / pro Stk.</source>
+                <target>€ / pro Stk.</target>
+            </trans-unit>
+            <trans-unit id="quote.noItem">
+                <source>Keine Artikel vorhanden...</source>
+                <target>Keine Artikel vorhanden</target>
+            </trans-unit>
+            <trans-unit id="quote.code">
+                <source>Code</source>
+                <target>Code</target>
+            </trans-unit>
+            <trans-unit id="quote.title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="quote.description">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="quote.quantity">
+                <source>Quantity</source>
+                <target>Menge</target>
+            </trans-unit>
+            <trans-unit id="quote.pricePerItemPdf">
+                <source>Price/Item</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="quote.total">
+                <source>Total</source>
+                <target>Gesamt</target>
+            </trans-unit>
+            <trans-unit id="quote.remove">
+                <source>Remove</source>
+                <target>Entfernen</target>
+            </trans-unit>
+            <trans-unit id="quote.grandTotal">
+                <source>Grand Total</source>
+                <target>Gesamt</target>
+            </trans-unit>
+            <trans-unit id="quote.formTitle">
+                <source>Request Form</source>
+                <target>Anfrage Formular</target>
+            </trans-unit>
+            <trans-unit id="quote.company">
+                <source>Company</source>
+                <target>Firma</target>
+            </trans-unit>
+            <trans-unit id="quote.firstName">
+                <source>Vorname</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="quote.lastName">
+                <source>Last Name</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="quote.streetHouse">
+                <source>Strasse und Hausnummer</source>
+                <target>Straße/Nr.</target>
+            </trans-unit>
+            <trans-unit id="quote.zip">
+                <source>PLZ</source>
+                <target>PLZ</target>
+            </trans-unit>
+            <trans-unit id="quote.place">
+                <source>Ort</source>
+                <target>Ort</target>
+            </trans-unit>
+
+            <trans-unit id="quote.email">
+                <source>E-Mail</source>
+                <target>EMail</target>
+            </trans-unit>
+            <trans-unit id="quote.phone">
+                <source>Phone</source>
+                <target>Tel.</target>
+            </trans-unit>
+            <trans-unit id="quote.comments">
+                <source>Comments</source>
+                <target>Ihre Nachricht</target>
+            </trans-unit>
+            <trans-unit id="quote.gdpr">
+                <source>Accept term and condition</source>
+                <target>Mit Absenden des Formulars stimmen Sie unseren Datenschutzbestimmungen zu.</target>
+            </trans-unit>
+            <trans-unit id="quote.thanksMsg">
+                <source>Thanks for the order, mail is successfully sent to admin.</source>
+                <target>Danke für Ihre Bestellung, diese wird in Kürze bearbeitet.</target>
+            </trans-unit>
+            <trans-unit id="quote.close">
+                <source>Close</source>
+                <target>schließen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

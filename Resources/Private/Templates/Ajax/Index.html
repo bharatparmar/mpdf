@@ -1,0 +1,129 @@
+{namespace kr=GRCR\Mosttheme\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace f=TYPO3\Fluid\ViewHelpers}
+
+	<div class="filter-wrap gallery-col">
+		<f:if condition="{returnArray->f:count()}">
+			<f:then>
+				<div class="row">
+					<f:for each="{returnArray}" as="modellMenu" key="{key}">
+						{key}
+						<flux:form.data table="pages" field="tx_fed_page_flexform" uid="{modellMenu.uid}" as="pageConfig">
+							<div class="col-md-4 col-sm-6" id="remove-WB{modellMenu.uid}">
+								<div class="tfa-box panel">
+									<div class="tfa-row">
+										<div class="tfa-media">
+											<f:if condition="{pageConfig.modellImageFile}">
+												<f:then>
+													<f:image src="{pageConfig.modellImageFile}"
+															 alt="{modellMenu.title}"
+															 width="920"
+															 height="525c"
+															 class="car_model_img img-responsive lazyload" />
+												</f:then>
+												<f:else>
+													<f:image src="/fileadmin/dummy/fff.jpg"
+															 alt="Bild folgt"
+															 width="920"
+															 height="525c"
+															 class="car_model_img img-responsive lazyload" />
+												</f:else>
+											</f:if>
+										</div>
+										<div class="tfa-title">
+											<div class="tfa-title-inner">
+												<strong>{pageConfig.modellname}</strong>&nbsp;&nbsp;<label class="label label-primary">{pageConfig.modelltyp}</label><br />
+												<small>{pageConfig.teasertext}</small>
+											</div>
+										</div>
+
+										<div class="tfa-content">
+											<ul class="tfa-content-list">
+												<li><i class="fal fa-check-square color"></i> {f:translate(key:'lbl_geeignet_fur', extensionName: 'mosttheme')} <strong>{pageConfig.anzahlpersonen}</strong> {f:translate(key:'lbl_personen', extensionName: 'mosttheme')}</li>
+												<f:if condition="{pageConfig.dachterrasse}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_dachterrasse', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<li><i class="fal fa-check-square color"></i> {f:translate(key:'lbl_nutzflache_ca', extensionName: 'mosttheme')}. <strong>{pageConfig.nutzflaeche}qm</strong></li>
+
+												<f:if condition="{pageConfig.bordgenerator}">
+													<li>
+														<f:if condition="{pageConfig.bordgeneratoroptional}">
+															<f:then>
+																<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_optional_mit_bordgenerator', extensionName: 'mosttheme')}: <strong>{pageConfig.bordgenerator}</strong>
+															</f:then>
+															<f:else>
+																<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_mit_bordgenerator', extensionName: 'mosttheme')}: <strong>{pageConfig.bordgenerator}</strong>
+															</f:else>
+														</f:if>
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.frontodereingangverglast}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_front_oder_eingang_verglast', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.meetingraum}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_meetingraumteamabteil', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.klimaanlage}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_klimatisierung', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.heizung}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_heizung', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.kueche}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_kuche_oder_kuhlschrank', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.trailertent}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_trailertent_ebenerdig', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+												<f:if condition="{pageConfig.multimedia}">
+													<li>
+														<i class="fal fa-check-square color"></i> {f:translate(key:'lbl_ledlcd_monitor', extensionName: 'mosttheme')}
+													</li>
+												</f:if>
+											</ul>
+											<div class="tfa-actions">
+												<ul>
+													<li>
+														<a class="btn btn-primary btn-appear" href="{f:uri.page(pageUid:modellMenu.uid)}">
+														<span>
+															{f:translate(key:'lbl_fahrzeugdetail', extensionName: 'mosttheme')}
+															<i class="ion-arrow-right-c"></i>
+														</span>
+														</a>
+													</li>
+													<li>
+														&nbsp;
+														<a href="javascript:;" class="removeWish" data-id="WB{modellMenu.uid}" alt="{f:translate(key:'lbl_remove', extensionName: 'mosttheme')}">
+															<i class="fal fa-trash"></i>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</flux:form.data>
+					</f:for>
+				</div>
+			</f:then>
+			<f:else>
+				<span id="noDataMsg">Keine gespeicherten Fahrzeuge vorhanden.</span>
+			</f:else>
+		</f:if>
+
+	</div>

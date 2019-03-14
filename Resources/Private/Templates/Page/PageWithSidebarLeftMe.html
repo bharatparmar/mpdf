@@ -1,0 +1,53 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+    <f:layout name="PageWithSidebarLeftMe" />
+
+    <f:section name="Configuration">
+        <flux:form id="pagewithsidebarleftme"
+                   label="Unterseite ME mit Sidebar Links">
+            <!-- Insert fields, sheets, grid, form section objects etc. here, in this flux:form tag -->
+        </flux:form>
+        <flux:grid>
+            <!-- Edit this grid to change the "backend layout" structure -->
+            <flux:grid.row>
+                <flux:grid.column colPos="100" colspan="3" name="teasersection" label="Teaser Section" />
+            </flux:grid.row>
+            <flux:grid.row>
+                <flux:grid.column colPos="101" colspan="3" name="contentsection1" label="Content Section 1" />
+            </flux:grid.row>
+            <flux:grid.row>
+                <flux:grid.column colPos="110" colspan="3" name="dynfooter1" label="Dyn: Footer 1" />
+            </flux:grid.row>
+        </flux:grid>
+    </f:section>
+
+    <f:section name="Main">
+        <section class="teaser-section" id="teaser-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <v:content.render column="100" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container content-container">
+            <div class="row">
+                <div class="col-md-3">
+                    <f:render section="SubNavigation" partial="Page/Navigation/Subnavigation" arguments="{_all}" />
+                    <v:content.render column="102" />
+                </div>
+                <div class="col-md-9">
+                    <v:content.render column="101" />
+                </div>
+            </div>
+        </div>
+
+    </f:section>
+</div>
+
+

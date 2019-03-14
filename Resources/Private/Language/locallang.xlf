@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
+          product-name="kastenhuber_theme">
+        <header/>
+        <body>
+
+            <trans-unit id="skiptomaincontent">
+                <source>Skip to main content</source>
+            </trans-unit>
+
+            <trans-unit id="previous">
+                <source>Previous</source>
+            </trans-unit>
+
+            <trans-unit id="next">
+                <source>Next</source>
+            </trans-unit>
+
+            <trans-unit id="externalmediaunsupported">
+                <source>The external media source %s is not supported. Please provide a valid YouTube or Vimeo URL.</source>
+            </trans-unit>
+            <trans-unit id="quote.cart">
+                <source>Cart</source>
+            </trans-unit>
+            <trans-unit id="quote.cartTitle">
+                <source>Your Items</source>
+            </trans-unit>
+            <trans-unit id="quote.send">
+                <source>Send</source>
+            </trans-unit>
+            <trans-unit id="quote.addToCart">
+                <source>In Warenkorb legen</source>
+            </trans-unit>
+            <trans-unit id="quote.pricePerItem">
+                <source>€ / pro Stk.</source>
+            </trans-unit>
+            <trans-unit id="quote.noItem">
+                <source>Keine Artikel vorhanden...</source>
+            </trans-unit>
+            <trans-unit id="quote.code">
+                <source>Code</source>
+            </trans-unit>
+            <trans-unit id="quote.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="quote.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="quote.quantity">
+                <source>Quantity</source>
+            </trans-unit>
+            <trans-unit id="quote.pricePerItemPdf">
+                <source>Price/Item</source>
+            </trans-unit>
+            <trans-unit id="quote.total">
+                <source>Total</source>
+            </trans-unit>
+            <trans-unit id="quote.remove">
+                <source>Remove</source>
+            </trans-unit>
+            <trans-unit id="quote.grandTotal">
+                <source>Grand Total</source>
+            </trans-unit>
+            <trans-unit id="quote.formTitle">
+                <source>Request Form</source>
+            </trans-unit>
+            <trans-unit id="quote.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="quote.firstName">
+                <source>Vorname</source>
+            </trans-unit>
+            <trans-unit id="quote.lastName">
+                <source>Last Name</source>
+            </trans-unit>
+            <trans-unit id="quote.streetHouse">
+                <source>Strasse und Hausnummer</source>
+            </trans-unit>
+            <trans-unit id="quote.zip">
+                <source>PLZ</source>
+            </trans-unit>
+            <trans-unit id="quote.place">
+                <source>Ort</source>
+            </trans-unit>
+
+            <trans-unit id="quote.email">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="quote.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="quote.comments">
+                <source>Comments</source>
+            </trans-unit>
+            <trans-unit id="quote.gdpr">
+                <source>Accept term and condition</source>
+            </trans-unit>
+            <trans-unit id="quote.thanksMsg">
+                <source>Thanks for the order, mail is successfully sent to admin.</source>
+            </trans-unit>
+            <trans-unit id="quote.close">
+                <source>Close</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

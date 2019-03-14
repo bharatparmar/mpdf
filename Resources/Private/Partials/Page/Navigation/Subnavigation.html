@@ -1,0 +1,36 @@
+
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+
+
+    <f:section name="SubNavigation">
+        <v:page.menu entryLevel="{settings.entryLevel -> v:math.ceil() -> v:math.sum(b: 1)}" includeSpacers="true" useShortcutData="true">
+            <f:if condition="{menu}">
+                <nav class="subnavigation hidden-sm hidden-xs" role="navigation">
+                    <ul class="nav nav-pills nav-stacked">
+                        <f:for each="{menu}" as="submenuPage" iteration="iteration">
+                            <f:if condition="{submenuPage.doktype} == 199">
+                                <f:then>
+                                    <li class="disabled">
+                                        <f:if condition="{iteration.isFirst}" else="&nbsp;&nbsp;" />
+                                        <span class="navbar-text">{submenuPage.linktext}:</span>
+                                        &nbsp;
+                                    </li>
+                                </f:then>
+                                <f:else>
+                                    <li class="{submenuPage.class}"><a tabindex="{iteration.cycle -> v:math.sum(b: 200)}" href="{submenuPage.link}" class="{submenuPage.class}">{submenuPage.linktext}</a></li>
+                                </f:else>
+                            </f:if>
+                        </f:for>
+                    </ul>
+                </nav>
+            </f:if>
+        </v:page.menu>
+    </f:section>
+
+
+</div>

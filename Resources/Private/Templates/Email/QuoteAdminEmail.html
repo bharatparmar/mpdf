@@ -1,0 +1,24 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<h2>Sehr geehrter Einkauf,</h2>
+<p>{firstName} {lastName} hat eine neue Bestellung ausgelöst.</p>
+
+<table>
+	<tr><td>name:</td><td>{firstName} {lastName}</td></tr>
+	<tr><td>Strasse und Hausnummer:</td><td>{streetHouse}</td></tr>
+	<tr><td>PLZ:</td><td>{zip}</td></tr>
+	<tr><td>Ort:</td><td>{place}</td></tr>
+	<tr><td>EMail:</td><td>{email}</td></tr>
+	<tr><td>Tel:</td><td>{phone}</td></tr>
+	<f:if condition="{presscontainerartnr}">
+		<tr><td>Fabr.Nr. Presscontainer:</td><td>{presscontainerartnr}</td></tr>
+	</f:if>
+	<f:if condition="{comments}">
+		<tr><td>Nachricht:</td><td><f:format.nl2br>{comments}</f:format.nl2br></td></tr>
+	</f:if>
+</table>
+
+
+</div>

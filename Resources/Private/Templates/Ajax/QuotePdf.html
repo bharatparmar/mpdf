@@ -1,0 +1,117 @@
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+
+
+
+	<div class="filter-wrap gallery-col">
+		<style type="text/css">
+			/*.main {
+				font-family:'sans-serif';
+			}*/
+
+			.logo {
+			  background: url("data:image/svg+xml;base64,[data]");
+			}
+
+			.main {
+				font-family: "proximannova";
+			}
+
+			body {
+				font-family: "proximanova";
+			}
+
+			#quotes {
+			  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			  margin-top:100px;
+			}
+
+			#quotes td, #quotes th {
+			  border: 1px solid #ddd;
+			  padding: 8px;
+			}
+
+			#quotes tr:nth-child(even){background-color: #f2f2f2;}
+
+			#quotes tr:hover {background-color: #ddd;}
+
+			#quotes th {
+			  padding-top: 12px;
+			  padding-bottom: 12px;
+			  text-align: left;
+			  background-color: #0050a0;
+			  color: white;
+			}
+
+		</style>
+
+
+
+
+
+		<table id="quotes">
+			<tr>
+				<th>
+
+				</th>
+				<th>
+					<f:translate id="quote.code" extensionName="KastenhuberTheme"/>
+				</th>
+				<th>
+					<f:translate id="quote.title" extensionName="KastenhuberTheme"/>
+				</th>
+				<th>
+					<f:translate id="quote.description" extensionName="KastenhuberTheme"/>
+				</th>
+				<th>
+					<f:translate id="quote.quantity" extensionName="KastenhuberTheme"/>
+				</th>
+				<th>
+					<f:translate id="quote.pricePerItemPdf" extensionName="KastenhuberTheme"/>
+				</th>
+				<th>
+					<f:translate id="quote.total" extensionName="KastenhuberTheme"/>
+				</th>
+			<tr>
+			<f:for each="{itemArray}" as="item">
+				<tr>
+					<td>
+
+						<img src="{item.img}" width="100" height="100" />
+					</td>
+					<td>
+						{item.uid}
+					</td>
+					<td>
+						<h4>{item.title}</h4>
+					</td>
+					<td>
+						<f:format.html>{item.description}</f:format.html>
+					</td>
+					<td>
+						{item.items}
+					</td>
+					<td>
+						{item.price}
+					</td>
+
+					<td>
+						<f:format.currency currencySign="€" decimalSeparator="." thousandsSeparator="," >{item.total}</f:format.currency>
+					</td>
+				</tr>
+
+			</f:for>
+			<tr>
+				<td colspan=6><f:translate id="quote.grandTotal" extensionName="KastenhuberTheme"/></td>
+				<td><f:format.currency currencySign="€" decimalSeparator="." thousandsSeparator="," >{totalPrice}</f:format.currency></td>
+			</tr>
+		</table>
+
+	</div>
+</div>

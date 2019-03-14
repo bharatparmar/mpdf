@@ -1,0 +1,535 @@
+plugin.tx_kastenhubertheme {
+	view {
+		templateRootPaths.0 = {$plugin.tx_kastenhubertheme.view.templateRootPaths.0}
+		partialRootPaths.0 = {$plugin.tx_kastenhubertheme.view.partialRootPaths.0}
+		layoutRootPaths.0 = {$plugin.tx_kastenhubertheme.view.layoutRootPaths.0}
+	}
+	#By default the following settings only will have relevance if you have fluidcontent_core extension loaded
+	settings{
+		container {
+			types {
+				default = div
+				Example = div
+			}
+		}
+	}
+}
+
+
+################
+#### HELPER ####
+################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/Helper/ParseFunc.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/Helper/DynamicContent.txt">
+
+#############################################################
+#### CONTENT ELEMENT RENDERING                           ####
+#### Manual inclusion to keep control over loading order ####
+#############################################################
+tt_content >
+tt_content = CASE
+tt_content {
+	key {
+		field = CType
+	}
+}
+
+#### TYPO3 DEFAULT CONTENT ELEMENT RENDERING
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Bullets.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Div.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Header.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Html.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Image.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/List.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Menu.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuCategorizedContent.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuCategorizedPages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuOfSubpagesToThesePages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuOfSubpagesToThesePagesAbstract.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuOfSubpagesToThesePagesAndSections.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuRecentlyUpdatedPages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuRelatedPagesBasedOnKewords.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuSectionIndex.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuSitemap.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/MenuSitemapOfSelectedPages.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Shortcut.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Table.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Text.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Textpic.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Textmedia.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Uploads.txt">
+
+#### TYPO3 MAILFORM
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Mailform.txt">
+
+#### INDEXED SEARCH
+[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search')]
+	<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/Extension/IndexedSearch.txt">
+[global]
+
+#### FRONTEND LOGIN
+[userFunc = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('felogin')]
+	<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/Extension/Felogin.txt">
+[global]
+
+
+#### NO RENDERING DEFINITION
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/ContentElement/Default.txt">
+
+###################################
+#### BOOSTRAP PACKAGE SETTINGS ####
+###################################
+plugin.tx_kastenhubertheme {
+	settings {
+		overrideLessVariables = {$plugin.kastenhuber_theme.settings.overrideLessVariables}
+		cssSourceMapping = {$plugin.kastenhuber_theme.settings.cssSourceMapping}
+	}
+}
+
+##############
+#### PAGE ####
+##############
+page = PAGE
+page {
+	typeNum = 0
+	shortcutIcon = /favicon.ico
+
+
+	/// TYPEKIT INTEGRATION
+	headerData.520 = TEXT
+	headerData.520.value (
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+
+<style>html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}header,nav{display:block}a{background-color:transparent}strong{font-weight:700}img{border:0}button{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;color:#333;background-color:#fff}button{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#0050a0;text-decoration:none}img{vertical-align:middle}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}h2{font-family:"nimbus-sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500;line-height:1.1;color:inherit}h2{margin-top:24px;margin-bottom:12px}h2{font-size:34px}p{margin:0 0 12px}ul{margin-top:0;margin-bottom:12px}ul ul{margin-bottom:0}.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.row{margin-left:-15px;margin-right:-15px}.col-sm-6,.col-md-12{position:relative;min-height:1px;padding-left:15px;padding-right:15px}@media (min-width:768px){.col-sm-6{float:left}.col-sm-6{width:50%}}@media (min-width:992px){.col-md-12{float:left}.col-md-12{width:100%}}.collapse{display:none}.dropdown{position:relative}.dropdown-menu{position:absolute;top:100%;left:0;z-index:1000;display:none;float:left;min-width:160px;padding:5px 0;margin:2px 0 0;list-style:none;font-size:16px;text-align:left;background-color:#fff;border:1px solid #ccc;border:1px solid #eee;border-radius:0;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175);background-clip:padding-box}.dropdown-menu>li>a{display:block;padding:3px 20px;clear:both;font-weight:400;line-height:1.55;color:#333;white-space:nowrap}.nav{margin-bottom:0;padding-left:0;list-style:none}.nav>li{position:relative;display:block}.nav>li>a{position:relative;display:block;padding:10px 15px}.navbar{position:relative;min-height:70px;margin-bottom:24px;border:1px solid transparent}@media (min-width:992px){.navbar{border-radius:0}}@media (min-width:992px){.navbar-header{float:left}}.navbar-collapse{overflow-x:visible;padding-right:15px;padding-left:15px;border-top:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);-webkit-overflow-scrolling:touch}@media (min-width:992px){.navbar-collapse{width:auto;border-top:0;box-shadow:none}.navbar-collapse.collapse{display:block!important;height:auto!important;padding-bottom:0;overflow:visible!important}.navbar-fixed-top .navbar-collapse{padding-left:0;padding-right:0}}.navbar-fixed-top .navbar-collapse{max-height:340px}@media (max-device-width:480px) and (orientation:landscape){.navbar-fixed-top .navbar-collapse{max-height:200px}}.container>.navbar-header,.container>.navbar-collapse{margin-right:-15px;margin-left:-15px}@media (min-width:992px){.container>.navbar-header,.container>.navbar-collapse{margin-right:0;margin-left:0}}.navbar-fixed-top{position:fixed;right:0;left:0;z-index:1030}@media (min-width:992px){.navbar-fixed-top{border-radius:0}}.navbar-fixed-top{top:0;border-width:0 0 1px}.navbar-brand{float:left;padding:23px 15px;font-size:20px;line-height:24px;height:70px}.navbar-brand>img{display:block}.navbar-toggle{position:relative;float:right;margin-right:15px;padding:9px 10px;margin-top:18px;margin-bottom:18px;background-color:transparent;background-image:none;border:1px solid transparent;border-radius:0}.navbar-toggle .icon-bar{display:block;width:22px;height:2px;border-radius:1px}.navbar-toggle .icon-bar+.icon-bar{margin-top:4px}@media (min-width:992px){.navbar-toggle{display:none}}.navbar-nav{margin:11.5px -15px}.navbar-nav>li>a{padding-top:10px;padding-bottom:10px;line-height:24px}@media (min-width:992px){.navbar-nav{float:left;margin:0}.navbar-nav>li{float:left}.navbar-nav>li>a{padding-top:23px;padding-bottom:23px}}.navbar-nav>li>.dropdown-menu{margin-top:0;border-top-right-radius:0;border-top-left-radius:0}.navbar-default{background-color:#fff;border-color:#eee}.navbar-default .navbar-brand{color:#8c8c8c}.navbar-default .navbar-nav>li>a{color:#8c8c8c}.navbar-default .navbar-toggle{border-color:transparent}.navbar-default .navbar-toggle .icon-bar{background-color:#8c8c8c}.navbar-default .navbar-collapse{border-color:#eee}.container:before,.container:after,.row:before,.row:after,.nav:before,.nav:after,.navbar:before,.navbar:after,.navbar-header:before,.navbar-header:after,.navbar-collapse:before,.navbar-collapse:after{content:" ";display:table}.container:after,.row:after,.nav:after,.navbar:after,.navbar-header:after,.navbar-collapse:after{clear:both}@-ms-viewport{width:device-width}h2{margin-top:0}body{position:relative}.navbar-collapse{max-height:none}.navbar.navbar-top{border-left:none;border-right:none;border-top:none;margin-bottom:0}.navbar-header-main .navbar-brand{padding-top:0;padding-bottom:0;font-size:22px;font-family:"nimbus-sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;line-height:140px;height:140px}.navbar-header-main .navbar-brand.navbar-brand-image>img{display:inline}@media (max-width:991px){.navbar-header-main{position:relative}.navbar-header-main .navbar-brand{padding:23px 15px;font-size:20px;line-height:24px;height:auto}.navbar-header-main .navbar-brand.navbar-brand-image{padding-top:15px;padding-bottom:15px}.navbar-header-main .navbar-brand.navbar-brand-image>img{max-height:40px;width:auto}}.navbar-main>li>a{font-family:"nimbus-sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase}@media (max-width:991px){.navbar-main>li.dropdown>a{padding-right:40px}}@media (min-width:992px){.navbar-main>li:last-child>a{margin-right:0}.navbar-main>li>a{line-height:50px;padding:0 15px}}.navbar-toggle{height:34px;width:34px;padding:0}.navbar-toggle .icon-bar{position:absolute;top:50%;left:5px;margin-top:-1px}.navbar-toggle .icon-bar:nth-child(2){margin-top:-1px;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg)}.navbar-toggle .icon-bar:nth-child(3){margin-top:-1px;opacity:0}.navbar-toggle .icon-bar:nth-child(4){margin-top:-1px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg)}.navbar-toggle.collapsed .icon-bar:nth-child(2){margin-top:-7px;-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg)}.navbar-toggle.collapsed .icon-bar:nth-child(3){opacity:1}.navbar-toggle.collapsed .icon-bar:nth-child(4){margin-top:5px;-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg)}.dropdown-menu{padding:0;-webkit-box-shadow:0 2px 0 rgba(0,0,0,.1);box-shadow:0 2px 0 rgba(0,0,0,.1)}.dropdown-menu>li>a{padding:11.5px 15px}.frame{margin-top:48px;margin-bottom:48px}body{font-family:"Poppins","Helvetica Neue",Helvetica,sans-serif;color:#999;background:#fff;font-size:16px;margin-top:70px}.graphpaper-background{background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23dfdfdf' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}@media (max-width:767px){body{font-size:14px}}.frame{float:left;width:100%}.section{float:left;width:100%}h2{font-family:"Poppins","Helvetica Neue",Helvetica,sans-serif;font-size:1.4em;font-weight:400;float:left;width:100%;padding-bottom:20px;padding-top:20px;border-bottom:1px solid #aaa;color:#0050a0}p{font-family:"Poppins","Helvetica Neue",Helvetica,sans-serif;font-weight:100;font-size:.9em;line-height:1.6em;color:#6d6e71}.frame{margin-top:25px;margin-bottom:25px}@media (min-width:1200px){body{margin-top:100px!important}}.import-header{background-color:#0050a0;box-shadow:0 0 20px 0 rgba(0,0,0,.5)}.navbar-default{border:none}.navbar-main>li>a{color:#fff!important;text-transform:uppercase;font-weight:300;font-size:.8em;line-height:45px!important;font-family:"Poppins","Helvetica Neue",Helvetica,sans-serif}.dropdown-menu>li>a{font-size:.8em;font-family:"Poppins","Helvetica Neue",Helvetica,sans-serif;font-weight:300;color:#999;text-transform:uppercase}.navbar-collapse{width:100%}.header-container .navbar-main{float:right!important}.header-container .navbar-main>li>a{line-height:100px!important}.navbar-header-main{float:left;width:auto}nav.stroke ul li a{position:relative}nav.stroke ul li a:after{position:absolute;top:30px;left:0;right:0;margin:auto;width:0%;content:'.';color:transparent;background:#aaa;height:1px}@media (min-width:992px){.navbar-header-main .navbar-brand{line-height:100px;height:100px}}@media (min-width:1200px){.navbar-header-main .navbar-brand{line-height:100px;height:100px}}.teaser-section{float:left;width:100%;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23dfdfdf' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}.kh-sliderline-top{position:absolute;top:0;height:5px;left:0;right:0;background-color:rgba(0,0,0,.2);z-index:199}@font-face{font-family:'revicons';src:url(../../../typo3conf/ext/kastenhuber_theme/Resources/Public/fonts/revicons/revicons.eot?5510888);src:url(../../../typo3conf/ext/kastenhuber_theme/Resources/Public/fonts/revicons/revicons.eot?5510888#iefix) format('embedded-opentype'),url(../../../typo3conf/ext/kastenhuber_theme/Resources/Public/fonts/revicons/revicons.woff?5510888) format('woff'),url(../../../typo3conf/ext/kastenhuber_theme/Resources/Public/fonts/revicons/revicons.ttf?5510888) format('truetype'),url(../../../typo3conf/ext/kastenhuber_theme/Resources/Public/fonts/revicons/revicons.svg?5510888#revicons) format('svg');font-weight:400;font-style:normal}.rev_slider_wrapper{position:relative;z-index:0}.rev_slider{position:relative;overflow:visible}.tp-overflow-hidden{overflow:hidden}.rev_slider>ul,.tp-revslider-mainul>li,.rev_slider>ul>li,.rev_slider>ul>li:before,.tp-revslider-mainul>li:before,.tp-simpleresponsive>ul,.tp-simpleresponsive>ul>li,.tp-simpleresponsive>ul>li:before,.tp-revslider-mainul>li,.tp-simpleresponsive>ul>li{list-style:none!important;position:absolute;margin:0px!important;padding:0px!important;overflow-x:visible;overflow-y:visible;list-style-type:none!important;background-image:none;background-position:0 0;text-indent:0em;top:0;left:0}.tp-revslider-mainul>li,.rev_slider>ul>li,.rev_slider>ul>li:before,.tp-revslider-mainul>li:before,.tp-simpleresponsive>ul>li,.tp-simpleresponsive>ul>li:before,.tp-revslider-mainul>li,.tp-simpleresponsive>ul>li{visibility:hidden}.tp-revslider-slidesli,.tp-revslider-mainul{padding:0!important;margin:0!important;list-style:none!important}.rev_slider li.tp-revslider-slidesli{position:absolute!important}.rev_slider_wrapper{width:100%}.fullwidthbanner-container{position:relative;padding:0;overflow:hidden}.fullwidthbanner-container .fullwidthabanner{width:100%;position:relative}.tp-bannertimer{visibility:hidden;width:100%;height:5px;background:#fff;background:rgba(0,0,0,.15);position:absolute;z-index:200;top:0}.tp-loader{top:50%;left:50%;z-index:10000;position:absolute}.tp-loader.spinner0{width:40px;height:40px;background-color:#fff;background:url(../../../typo3conf/ext/kastenhuber_theme/Resources/Public/assets/loader.gif) no-repeat center center;box-shadow:0 0 20px 0 rgba(0,0,0,.15);-webkit-box-shadow:0 0 20px 0 rgba(0,0,0,.15);margin-top:-20px;margin-left:-20px;-webkit-animation:tp-rotateplane 1.2s infinite ease-in-out;animation:tp-rotateplane 1.2s infinite ease-in-out;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}@-webkit-keyframes tp-rotateplane{0%{-webkit-transform:perspective(120px)}50%{-webkit-transform:perspective(120px) rotateY(180deg)}100%{-webkit-transform:perspective(120px) rotateY(180deg) rotateX(180deg)}}@keyframes tp-rotateplane{0%{transform:perspective(120px) rotateX(0deg) rotateY(0deg)}50%{transform:perspective(120px) rotateX(-180.1deg) rotateY(0deg)}100%{transform:perspective(120px) rotateX(-180deg) rotateY(-179.9deg)}}.tp-bullets{position:absolute;display:block;z-index:1000;top:0;left:0}.tp-bullet{width:15px;height:15px;position:absolute;background:#fff;background:rgba(255,255,255,.3)}.tp-bullet.selected{background:#fff}.tp-bannertimer{background:#000;background:rgba(0,0,0,.15);height:5px}.tparrows{background:#000;background:rgba(0,0,0,.5);width:40px;height:40px;position:absolute;display:block;z-index:1000}.tparrows:before{font-family:"revicons";font-size:15px;color:#fff;display:block;line-height:40px;text-align:center}.tparrows.tp-leftarrow:before{content:'\e824'}.tparrows.tp-rightarrow:before{content:'\e825'}@font-face{font-family:'Poppins';font-style:normal;font-weight:300;src:local('Poppins Light'),local('Poppins-Light'),url(https://fonts.gstatic.com/s/poppins/v3/D2gN9uyZ9Ucx1fJ1Fhb7sy3USBnSvpkopQaUR-2r7iU.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:local('Poppins Regular'),local('Poppins-Regular'),url(https://fonts.gstatic.com/s/poppins/v3/TDTjCH39JjVycIF24TlO-Q.ttf) format('truetype')}@font-face{font-family:'Poppins';font-style:normal;font-weight:700;src:local('Poppins Bold'),local('Poppins-Bold'),url(https://fonts.gstatic.com/s/poppins/v3/57TQ-anwthzkETEIO4jESC3USBnSvpkopQaUR-2r7iU.ttf) format('truetype')}</style>
+
+<script>
+function gtmOptOut(){document.cookie="GTM-optout\x3dtrue; expires\x3dThu, 31 Dec 2099 23:59:59 UTC; path\x3d/";window["GTM-optout"]=!0;alert("Tracking deaktiviert")}function gtmOptIn(){document.cookie="GTM-optout\x3dfalse; expires\x3dThu, 31 Dec 2099 23:59:59 UTC; path\x3d/";window["GTM-optout"]=!1;alert("Tracking aktiviert")};
+</script>
+	)
+
+
+
+	headerData {
+		// Flip ahead browsing for IE10/11
+		// http://msdn.microsoft.com/en-us/library/ie/jj883726(v=vs.85).aspx
+		10 = HMENU
+		10 {
+			special = browse
+			special {
+				items = prev|next
+			}
+			1 = TMENU
+			1.NO {
+				allWrap = <link rel="prev" href="|"> |*| <link rel="next" href="|">
+				doNotLinkIt = 1
+				stdWrap {
+					typolink {
+						parameter.data = field:uid
+						useCacheHash = 1
+						returnLast = url
+					}
+				}
+			}
+		}
+	}
+
+	meta {
+		# New notation available since TYPO3 7.4
+		# see https://forge.typo3.org/issues/67360 for more details
+		viewport = {$page.meta.viewport}
+		robots = {$page.meta.robots}
+		google = {$page.meta.google}
+		apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+		X-UA-Compatible = {$page.meta.compatible}
+		X-UA-Compatible {
+			attribute = http-equiv
+		}
+	}
+
+	includeCSS {
+		# bootstrap will be included in the themes.less file
+		# for standalone usage just uncomment the following line
+		# bootstrap = EXT:kastenhuber_theme/Resources/Public/Less/Bootstrap/bootstrap.less
+		theme = EXT:kastenhuber_theme/Resources/Public/Less/Theme/theme.less
+		# Slider
+		slidersettings = EXT:kastenhuber_theme/Resources/Public/Css/slider-settings.css
+	}
+
+	includeJSLibs {
+		modernizr = EXT:kastenhuber_theme/Resources/Public/JavaScript/Libs/modernizr-2.8.3.min.js
+		modernizr.forceOnTop = 1
+		modernizr.async = 1
+		wpfix = EXT:kastenhuber_theme/Resources/Public/JavaScript/Dist/windowsphone-viewportfix.min.js
+		wpfix.async = 1
+	}
+
+	includeJSFooterlibs {
+		jquery = EXT:kastenhuber_theme/Resources/Public/JavaScript/Libs/jquery.min.js
+		jquery.forceOnTop = 1
+		responsiveimages = EXT:kastenhuber_theme/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
+		equalheight = EXT:kastenhuber_theme/Resources/Public/JavaScript/Dist/jquery.equalheight.min.js
+		bootstrap = EXT:kastenhuber_theme/Resources/Public/JavaScript/Libs/bootstrap.min.js
+		photoswipe_core = EXT:kastenhuber_theme/Resources/Public/JavaScript/Libs/photoswipe.min.js
+		photoswipe_ui = EXT:kastenhuber_theme/Resources/Public/JavaScript/Libs/photoswipe-ui-default.min.js
+
+		#### Add swipe support for boostrap components
+		hammerjs = EXT:kastenhuber_theme/Resources/Public/JavaScript/Libs/hammer.min.js
+		bootstrap_swipe = EXT:kastenhuber_theme/Resources/Public/JavaScript/Dist/bootstrap.swipe.min.js
+		bootstrap_popover = EXT:kastenhuber_theme/Resources/Public/JavaScript/Dist/bootstrap.popover.min.js
+		#### Basic lightbox implementation for bootstrap
+		bootstrap_lightbox = EXT:kastenhuber_theme/Resources/Public/JavaScript/Src/bootstrap.lightbox.js
+		#### Toggle collapsed CSS class on the navbar toggle button
+		bootstrap_navbartoggle = EXT:kastenhuber_theme/Resources/Public/JavaScript/Dist/bootstrap.navbartoggle.min.js
+
+		### SLIDER
+		slidertools = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/jquery.themepunch.tools.min.js
+		slidermin = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/jquery.themepunch.revolution.min.js
+		slidertrigger = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/slidertrigger.js
+
+		sliderextanims = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/extensions/revolution.extension.slideanims.min.js
+		sliderextnavigation = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/extensions/revolution.extension.navigation.min.js
+		sliderextvideo = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/extensions/revolution.extension.video.min.js
+		sliderextparallax = EXT:kastenhuber_theme/Resources/Public/JavaScript/slider/extensions/revolution.extension.parallax.min.js
+
+		custom-cookie	=	EXT:kastenhuber_theme/Resources/Public/js/custom-cookie.js
+
+
+		mainscript = EXT:kastenhuber_theme/Resources/Public/JavaScript/main.js
+	}
+
+}
+
+###################################################
+#### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
+#### IF NO SEARCH IS SET FOR THIS PAGE         ####
+###################################################
+[globalVar = TSFE:page|no_search = 1]
+	page.meta.robots = noindex,follow
+[end]
+
+
+################
+#### CONFIG ####
+################
+config {
+	absRefPrefix = auto
+	no_cache = {$config.no_cache}
+	uniqueLinkVars = 1
+	pageTitleFirst = 1
+	linkVars = L
+	prefixLocalAnchors = {$config.prefixLocalAnchors}
+	renderCharset = utf-8
+	metaCharset = utf-8
+	doctype = html5
+	removeDefaultJS = {$config.removeDefaultJS}
+	inlineStyle2TempFile = 1
+	admPanel = {$config.admPanel}
+	debug = 0
+	cache_period = 86400
+	sendCacheHeaders = {$config.sendCacheHeaders}
+	intTarget =
+	extTarget =
+	disablePrefixComment = 1
+	index_enable = 1
+	index_externals = 1
+	index_metatags = 1
+	headerComment = {$config.headerComment}
+
+	// Enable RealUrl
+	tx_realurl_enable = 1
+	simulateStaticDocuments = 0
+
+	// Disable Image Upscaling
+	noScaleUp = 1
+
+	// Language Settings
+	sys_language_uid = 0
+	//sys_language_overlay = 1
+	//sys_language_mode = content_fallback
+	language = de
+	locale_all = de_DE.UTF-8
+	htmlTag_setParams = lang="de" dir="ltr" class="no-js"
+
+	// Compression and Concatenation of CSS and JS Files
+	compressJs = {$config.compressJs}
+	compressCss = {$config.compressCss}
+	concatenateJs = {$config.concatenateJs}
+	concatenateCss = {$config.concatenateCss}
+}
+
+
+#############################
+#### LANGUAGE CONDITIONS ####
+#############################
+[globalVar = GP:L = 1]
+	config {
+		sys_language_uid = 1
+		language = en
+		locale_all = en_GB.UTF-8
+		htmlTag_setParams = lang="en" dir="ltr" class="no-js"
+		sys_language_overlay = 0
+		sys_language_mode = content_fallback
+
+	}
+[global]
+
+
+########################
+#### PAGETYPE POPUP ####
+########################
+popup < page
+popup {
+	typeNum = 1000
+	10 {
+		variables {
+			showHeader.value = 0
+			showFooter.value = 0
+		}
+	}
+}
+
+
+##### SAVED ARTICLES
+plugin.tx_kastenhubertheme.settings {
+	emailSubject = {$plugin.tx_kastenhubertheme.settings.emailSubject}
+	emailFrom = {$plugin.tx_kastenhubertheme.settings.emailFrom}
+	emailName = {$plugin.tx_kastenhubertheme.settings.emailName}
+
+	emailSubjectAdmin = {$plugin.tx_kastenhubertheme.settings.emailSubjectAdmin}
+	emailFromAdmin = {$plugin.tx_kastenhubertheme.settings.emailFromAdmin}
+	emailNameAdmin = {$plugin.tx_kastenhubertheme.settings.emailNameAdmin}
+	emailToAdmin = {$plugin.tx_kastenhubertheme.settings.emailToAdmin}
+}
+
+
+plugin.tx_kastenhubertheme.settings {
+	querySubjectAdmin = {$plugin.tx_kastenhubertheme.settings.querySubjectAdmin}
+	querySubjectUser = {$plugin.tx_kastenhubertheme.settings.querySubjectUser}
+	queryFromAdmin = {$plugin.tx_kastenhubertheme.settings.queryFromAdmin}
+	queryFromNameAdmin = {$plugin.tx_kastenhubertheme.settings.queryFromNameAdmin}
+	plugin.tx_kastenhubertheme.settings.queryToNameAdmin = {$plugin.tx_kastenhubertheme.settings.queryToNameAdmin}
+	queryToAdmin = {$plugin.tx_kastenhubertheme.settings.queryToAdmin}
+	sendEmailtouser = {$plugin.tx_kastenhubertheme.settings.sendEmailtouser}
+}
+
+tx_kastenhubertheme_saved = PAGE
+tx_kastenhubertheme_saved {
+	typeNum = 666
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders = Content-type: text/plain
+		no_cache = 1
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = KastenhuberTheme
+		pluginName = Pi1
+		vendorName = GRCR
+		controller = Ajax
+		switchableControllerActions {
+			Ajax {
+				1 = getSaved
+				2 = savePdf
+				3 = sendEmail
+			}
+		}
+		view < plugin.tx_kastenhubertheme.view
+		persistence < plugin.tx_kastenhubertheme.persistence
+		settings < plugin.tx_kastenhubertheme.settings
+	}
+}
+
+
+plugin.tx_kastenhubertheme{
+	view {
+		templateRootPaths {
+			0 = EXT:kastenhuber_theme/Resources/Private/Templates/
+
+		}
+		partialRootPaths {
+			0 = EXT:kastenhuber_theme/Resources/Private/Partials/
+
+		}
+		layoutRootPaths {
+			0 = EXT:kastenhuber_theme/Resources/Private/Layouts/
+
+		}
+	}
+	settings{
+		Quote{
+			adminEmail = {$plugin.tx_kastenhubertheme.settings.Quote.adminEmail}
+			adminName = {$plugin.tx_kastenhubertheme.settings.Quote.adminName}
+			sendEmailtouser ={$plugin.tx_kastenhubertheme.settings.Quote.sendEmailtouser}
+			subjectAdmin = {$plugin.tx_kastenhubertheme.settings.Quote.subjectAdmin}
+			subjectUser = {$plugin.tx_kastenhubertheme.settings.Quote.subjectUser}
+		}
+	}
+}
+
+tx_kastenhubertheme_ajax = PAGE
+tx_kastenhubertheme_ajax {
+	typeNum = 667
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 0
+		admPanel = 0
+		additionalHeaders = Content-type: text/plain
+		no_cache = 1
+	}
+
+	10 = USER
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = KastenhuberTheme
+		pluginName = Pi1
+		vendorName = GRCR
+		controller = Ajax
+		switchableControllerActions {
+			Ajax {
+				1 = sendEmail
+			}
+		}
+		view < plugin.tx_kastenhubertheme.view
+		persistence < plugin.tx_kastenhubertheme.persistence
+		settings < plugin.tx_kastenhubertheme.settings
+	}
+}
+
+tx_kastenhuberthemecart_ajax = PAGE
+tx_kastenhuberthemecart_ajax {
+  typeNum = 884
+  config {
+    disableAllHeaderCode = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    additionalHeaders = Content-type: text/plain
+    no_cache = 1
+  }
+
+  10 = USER
+  10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = KastenhuberTheme
+    pluginName = Pi1
+    vendorName = GRCR
+    controller = Ajax
+    switchableControllerActions {
+      Ajax {
+        1 = sendQuote
+      }
+    }
+    view < plugin.tx_kastenhubertheme.view
+	persistence < plugin.tx_kastenhubertheme.persistence
+	settings < plugin.tx_kastenhubertheme.settings
+  }
+}
+
+tx_kastenhuberthemecart_cart = PAGE
+tx_kastenhuberthemecart_cart {
+  typeNum = 885
+  config {
+    disableAllHeaderCode = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    additionalHeaders = Content-type: text/plain
+    no_cache = 1
+  }
+
+  10 = USER
+  10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = KastenhuberTheme
+    pluginName = Pi1
+    vendorName = GRCR
+    controller = Ajax
+    switchableControllerActions {
+      Ajax {
+        1 = getCart
+      }
+    }
+    view < plugin.tx_kastenhubertheme.view
+	persistence < plugin.tx_kastenhubertheme.persistence
+	settings < plugin.tx_kastenhubertheme.settings
+  }
+}
+
+tx_kastenhuberthemecart_form = PAGE
+tx_kastenhuberthemecart_form {
+  typeNum = 886
+  config {
+    disableAllHeaderCode = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    additionalHeaders = Content-type: text/plain
+    no_cache = 1
+  }
+
+  10 = USER
+  10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = KastenhuberTheme
+    pluginName = Pi1
+    vendorName = GRCR
+    controller = Ajax
+    switchableControllerActions {
+      Ajax {
+        1 = getForm
+      }
+    }
+    view < plugin.tx_kastenhubertheme.view
+	persistence < plugin.tx_kastenhubertheme.persistence
+	settings < plugin.tx_kastenhubertheme.settings
+  }
+}
+
+tx_kastenhuberthemecart_thanks = PAGE
+tx_kastenhuberthemecart_thanks {
+  typeNum = 887
+  config {
+    disableAllHeaderCode = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    additionalHeaders = Content-type: text/plain
+    no_cache = 1
+  }
+
+  10 = USER
+  10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = KastenhuberTheme
+    pluginName = Pi1
+    vendorName = GRCR
+    controller = Ajax
+    switchableControllerActions {
+      Ajax {
+        1 = getTHanksMsg
+      }
+    }
+    view < plugin.tx_kastenhubertheme.view
+	persistence < plugin.tx_kastenhubertheme.persistence
+	settings < plugin.tx_kastenhubertheme.settings
+  }
+}

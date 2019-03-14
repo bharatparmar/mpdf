@@ -1,0 +1,244 @@
+
+
+.import-header {
+  background-color: @brand-primary;
+  box-shadow: 0 0 20px 0 fade(#000000, 50%);
+}
+
+
+.navbar-default {
+  border: none;
+}
+
+header.nav {
+  transition: 1s all;
+}
+
+.affix {
+  box-shadow: rgb(102, 102, 102) 0px 15px 20px -20px;
+  transition: 1s all;
+}
+
+.navbar-main {
+  & > li {
+    & > a {
+      color: #ffffff !important;
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: 1s all;
+      font-size: 0.8em;
+      line-height: 45px !important;
+      font-family: "Poppins", "Helvetica Neue", Helvetica, sans-serif;
+
+      & > .active {
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100% !important;
+          content: '.';
+          color: transparent;
+          background: #aaa;
+          height: 1px;
+          transition: all .5s;
+
+        }
+      }
+
+
+      &:hover, &:focus {
+        background: transparent;
+        color: @l-blue;
+        transition: 1s all;
+      }
+    }
+    &.dropdown.open {
+      & > a {
+        color: @l-blue;
+      }
+    }
+  }
+}
+
+.dropdown-menu > li > a {
+  font-size: 0.8em;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  color: lighten(#000000, 60%);
+  text-transform: uppercase;
+}
+
+.navbar-collapse {
+  width: 100%;
+}
+
+@media (min-width: @screen-lg-min) {
+  .navbar-collapse {
+    //float: left;
+    //position: absolute;
+    //bottom: 0;
+  }
+}
+
+.header-container {
+  .navbar-main {
+    float: right !important;
+    &>li {
+      &>a {
+        line-height: 100px !important;
+      }
+    }
+  }
+}
+
+
+.navbar-header-main {
+  float: left;
+  width: auto;
+}
+
+.navbar-brand-image {
+  //padding-left: 47px;
+}
+
+
+.header-slogan {
+  color: @brand-primary;
+  font-size: 2.3em;
+  font-weight: 400;
+  margin-top: 45px;
+}
+
+
+.nav-pills {
+  & > li {
+    & > a {
+      color: #000000;
+      transition: all .5s;
+      background-color: fade(@l-blue, 50%);
+      transition: all .5s;
+      font-family: "Poppins", "Helvetica Neue", Helvetica, sans-serif;
+      font-weight: 300;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      padding: 5px;
+      padding-left: 15px;
+      padding-top: 8px;
+    }
+  }
+
+  & > li.active {
+    & > a {
+      background-color: fade(@l-blue, 50%);
+      transition: 1s all;
+      color: #ffffff;
+    }
+  }
+  & > li {
+    & > a {
+      &:hover {
+        background-color: @l-blue;
+        transition: all .5s;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.nav-stacked > li + li {
+  margin-top: 10px;
+  margin-left: 0;
+}
+
+
+.subnavigation {
+  margin-top: 25px;
+  padding-bottom: 50px;
+}
+
+/* stroke */
+nav.stroke ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+  transition: all .5s;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+
+nav.stroke ul li a.active:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+  transition: all .5s;
+}
+
+.footer-section {
+  .navbar-main > li > a:hover, .navbar-main > li > a:focus {
+    background: transparent;
+    color: lighten(#000000, 50%);
+    transition: 1s all;
+  }
+}
+
+.footer-nav-two {
+  float: left;
+}
+
+nav.footer-nav {
+  float: left;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.kh-logo-header {
+  //float: left !important;
+  .navbar-header-main .navbar-brand {
+    line-height: 60px;
+    height: 60px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+  .kh-logo-header {
+    //float: right !important;
+  }
+  .navbar-header-main .navbar-brand {
+    line-height: 100px;
+    height: 100px;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-lg-min) {
+  .kh-logo-header {
+    //float: right !important;
+  }
+  .navbar-header-main .navbar-brand {
+    line-height: 100px;
+    height: 100px;
+  }
+}
+

@@ -1,0 +1,67 @@
+##########################
+#### CTYPE: TEXTMEDIA ####
+##########################
+
+tt_content.textmedia >
+tt_content.textmedia = FLUIDTEMPLATE
+tt_content.textmedia {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = TEXT
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+
+        key.field = imageorient
+
+        8 = TEXT
+        8.value = TextmediaBelow
+
+        25 = TEXT
+        25.value = TextmediaRight
+
+        26 = TEXT
+        26.value = TextmediaLeft
+
+        default = TEXT
+        default.value = TextmediaAbove
+
+    }
+    templateRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Templates/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.templateRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Partials/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Layouts/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.layoutRootPath}
+    }
+
+    ################
+    ### SETTINGS ###
+    ################
+    settings {
+        media {
+            preload = {$config.preloadImages}
+        }
+        lightbox {
+            cssClass = {$plugin.kastenhuber_theme_contentelements.lightbox.cssClass}
+            prefix = {$plugin.kastenhuber_theme_contentelements.lightbox.prefix}
+        }
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+        }
+    }
+
+}

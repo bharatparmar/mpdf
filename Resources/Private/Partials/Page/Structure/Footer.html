@@ -1,0 +1,41 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+
+<f:section name="ThemeFooter">
+    <footer class="kh-footer section">
+            <section class="footer-section">
+                <div class="container footer-container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '110'}"/>
+                        </div>
+                        <div class="col-md-9">
+                            <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '111'}"/>
+                            <v:page.menu as="mainMenu">
+                                <nav class="footer-nav">
+                                    <ul class="nav navbar-nav navbar-main">
+                                        <f:for each="{mainMenu}" as="menuPage">
+                                            <li class="{f:if(condition: menuPage.current, then:'active')}">
+                                                <f:link.page pageUid="{menuPage.uid}" class="{menuPage.class}" title="{menuPage.linktext}">{menuPage.linktext}</f:link.page>
+                                            </li>
+                                        </f:for>
+                                    </ul>
+                                </nav>
+                            </v:page.menu>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center" role="contentinfo">
+                            <p class="footer-info"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </footer>
+</f:section>
+
+
+</div>

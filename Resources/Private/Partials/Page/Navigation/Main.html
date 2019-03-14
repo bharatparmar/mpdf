@@ -1,0 +1,129 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+
+    <f:section name="MainNavigation">
+        <v:page.menu as="mainMenu">
+            <header class="navbar navbar-default navbar-has-image navbar-top navbar-fixed-top no-border-bottom import-header" data-spy="affix" data-offset-top="40">
+                <div class="header-container">
+                    <div class="container">
+                        <div class="navbar-header navbar-header-main">
+                            <a href="/" class="navbar-brand navbar-brand-image" title="BERINGER Behälter">
+                                <img src="/beringer/ui/beringer-logo-white.svg" width="170" height="80" alt="BERINGER Behäler" title="BERINGER Behälter" />
+                            </a>
+                        </div>
+                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <nav class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav navbar-main pull-right hidden-xs">
+                                <li>
+                                    <f:if condition="{v:page.language(languages: 'de,en', pageUid: '1', normalWhenNoLanguage: 'de')} == de">
+                                        <f:then>
+                                            <a rel="nofollow" href="https://www.beringer-behaelter.de/en.html" title="Go to English Version"><img src="/beringer/ui/english.png" alt="English" width="25px" /></a>
+                                        </f:then>
+                                        <f:else>
+                                            <a rel="nofollow" href="https://www.beringer-behaelter.de" title="Deutsche Version anzeigen"><img src="/beringer/ui/german.png" alt="Deutsch" width="25px" /></a>
+                                        </f:else>
+                                    </f:if>
+                                </li>
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-main">
+                                <f:for each="{mainMenu}" as="menuPage">
+                                    <li class="{f:if(condition: menuPage.current, then:'active')} {f:if(condition: menuPage.hasSubPages, then:'dropdown')}">
+                                        <f:link.page pageUid="{menuPage.uid}" class="{menuPage.class}" title="{menuPage.linktext}">{menuPage.linktext}</f:link.page>
+                                        <f:if condition="{menuPage.hasSubPages}">
+                                            <ul class="dropdown-menu">
+                                                <v:page.menu pageUid="{menuPage.uid}" as="subMenu">
+                                                    <f:for each="{subMenu}" as="subMenuPage">
+                                                        <li class="{f:if(condition: subMenuPage.current, then: 'active')}">
+                                                            <f:link.page pageUid="{subMenuPage.uid}" class="{subMenuPage.class}" title="{subMenuPage.linktext}">{subMenuPage.linktext}</f:link.page>
+                                                        </li>
+                                                    </f:for>
+                                                </v:page.menu>
+                                            </ul>
+                                        </f:if>
+                                    </li>
+                                </f:for>
+                            </ul>
+
+                        </nav>
+
+                    </div>
+                </div>
+            </header>
+        </v:page.menu>
+    </f:section>
+
+    <f:section name="MainNavigationMe">
+        <v:page.menu as="mainMenu">
+            <header class="navbar navbar-default navbar-has-image navbar-top navbar-fixed-top no-border-bottom import-header" data-spy="affix" data-offset-top="40">
+                <div class="header-container">
+                    <div class="container">
+                        <div class="navbar-header navbar-header-main">
+                            <f:link.page pageUid="/" class="navbar-brand navbar-brand-image" title="BERINGER Behälter">
+                                <img src="/beringer/ui/beringer-me-logo-white.svg" width="170" height="80" alt="BERINGER Behäler" title="BERINGER Behälter" />
+                            </f:link.page>
+                        </div>
+                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <nav class="navbar-collapse collapse stroke">
+
+                            <ul class="nav navbar-nav navbar-main pull-right hidden-xs">
+                                <li>
+                                    <f:if condition="{v:page.language(languages: 'en,ae', pageUid: '28', normalWhenNoLanguage: 'en')} == en">
+                                        <f:then>
+                                            <a rel="nofollow" href="https://www.beringer-behaelter.com/ae.html" title="العربية"><img src="/beringer/ui/ae.png" alt="English" width="25px" /></a>
+                                        </f:then>
+                                        <f:else>
+                                            <a rel="nofollow" href="https://www.beringer-behaelter.com" title="show english version"><img src="/beringer/ui/english.png" alt="English" width="25px" /></a>
+                                        </f:else>
+                                    </f:if>
+                                </li>
+                            </ul>
+
+
+
+                            <ul class="nav navbar-nav navbar-main">
+                                <f:for each="{mainMenu}" as="menuPage">
+                                    <li class="{f:if(condition: menuPage.current, then:'active')} {f:if(condition: menuPage.hasSubPages, then:'dropdown')}">
+                                        <f:link.page pageUid="{menuPage.uid}" class="{menuPage.class}" title="{menuPage.linktext}">{menuPage.linktext}</f:link.page>
+                                        <f:if condition="{menuPage.hasSubPages}">
+                                            <ul class="dropdown-menu">
+                                                <v:page.menu pageUid="{menuPage.uid}" as="subMenu">
+                                                    <f:for each="{subMenu}" as="subMenuPage">
+                                                        <li class="{f:if(condition: subMenuPage.current, then: 'active')}">
+                                                            <f:link.page pageUid="{subMenuPage.uid}" class="{subMenuPage.class}" title="{subMenuPage.linktext}">{subMenuPage.linktext}</f:link.page>
+                                                        </li>
+                                                    </f:for>
+                                                </v:page.menu>
+                                            </ul>
+                                        </f:if>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </header>
+        </v:page.menu>
+    </f:section>
+
+
+
+
+</div>

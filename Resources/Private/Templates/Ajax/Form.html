@@ -1,0 +1,62 @@
+
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	<h4><f:translate id="quote.formTitle" extensionName="KastenhuberTheme"/></h4>
+</div>
+<div class="modal-body">
+	<div class="request-box">
+	    <div class="row">
+	        <div class="col-md-10 col-sm-12">
+
+	            <form id="sendQuote" name="newQuote" enctype="multipart/form-data" novalidate='novalidate'>
+	            	<div class="form-group">
+	                   <label><f:translate id="quote.company" extensionName="KastenhuberTheme"/> *  </label>
+	                   <f:form.textfield id="company" name="company" class="form-control" required="1"/>
+	                </div>
+
+	                <div class="form-group">
+	                   <label><f:translate id="quote.firstName" extensionName="KastenhuberTheme"/>*</label>
+	                   <f:form.textfield name="firstName" class="form-control" required="1"/>
+	                </div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.lastName" extensionName="KastenhuberTheme"/>*</label>
+	                   <f:form.textfield name="lastName" class="form-control"  required="1"/>
+	                </div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.streetHouse" extensionName="KastenhuberTheme"/>*  </label>
+	                   <f:form.textfield name="streetHouse" class="form-control"  required="1"/>
+	                </div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.zip" extensionName="KastenhuberTheme"/>*</label>
+	                   <f:form.textfield name="zip" class="form-control"  required="1"/>
+	                </div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.place" extensionName="KastenhuberTheme"/>*</label>
+	                   <f:form.textfield name="place" class="form-control"  required="1"/>
+	                </div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.email" extensionName="KastenhuberTheme"/>*</label>
+	                   <f:form.textfield name="email" class="form-control"  required="1" />
+	                </div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.phone" extensionName="KastenhuberTheme"/>*</label>
+	                   <f:form.textfield name="phone" class="form-control"  required="1"/>
+	                </div>
+					<div class="form-group">
+						<label>Bei Bestellungen für Presscontainer, bitte hier die Fabr.-Nr. eintragen.</label>
+						<f:form.textfield name="presscontainerartnr" class="form-control" />
+					</div>
+	                <div class="form-group">
+	                   <label><f:translate id="quote.comments" extensionName="KastenhuberTheme"/></label>
+	                    <f:form.textarea name="comments" class="form-control" />
+	                </div>
+	                <div class="form-group checkbox">
+	                   <label><f:form.checkbox name="gdpr" id="gdpr" value="0" /><f:translate id="quote.gdpr" extensionName="KastenhuberTheme"/>*</label>
+	                </div>
+	                <f:form.button type="submit" name="submitForm" value="submitForm" class="btn btn-default formSubmit"><f:translate id="quote.send" extensionName="KastenhuberTheme"/></f:form.button>
+		        </form>
+	        </div>
+	    </div>
+	</div>
+</div>

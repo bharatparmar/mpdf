@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
+          product-name="kastenhuber_theme">
+        <header/>
+        <body>
+
+            <trans-unit id="theme_name">
+                <source>Kastenhuber Theme</source>
+            </trans-unit>
+
+            <trans-unit id="menu.thumbnail">
+                <source>Thumbnail Menu</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail.description">
+                <source>Insert menu to display pages as thumbnail list</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail_dir.description">
+                <source>Display subpages as thumbnails</source>
+            </trans-unit>
+            <trans-unit id="menu.thumbnail_list.description">
+                <source>Display selected pages as thumbnail</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.panel">
+                <source>Panel</source>
+            </trans-unit>
+            <trans-unit id="content_element.panel.description">
+                <source>Insert Panelelement with simple text</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.carousel">
+                <source>Carousel</source>
+            </trans-unit>
+            <trans-unit id="content_element.carousel.description">
+                <source>Insert Carouselelement with different contents (header / text with image / pure HTML)</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.texticon">
+                <source>Text and Icon</source>
+            </trans-unit>
+            <trans-unit id="content_element.texticon.description">
+                <source>Insert Bootstrap Icon with Text</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.accordion">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="content_element.accordion.description">
+                <source>Insert several Accordionelement(s) with headline and text</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.tab">
+                <source>Tab</source>
+            </trans-unit>
+            <trans-unit id="content_element.tab.description">
+                <source>Insert several Tabelement(s) with headline and text</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.listgroup">
+                <source>List Group</source>
+            </trans-unit>
+            <trans-unit id="content_element.listgroup.description">
+                <source>Insert simple Listgroupelement</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.external_media">
+                <source>External Media</source>
+            </trans-unit>
+            <trans-unit id="content_element.external_media.description">
+                <source>Insert external media from YouTube or Vimeo</source>
+            </trans-unit>
+
+            <trans-unit id="content_element.textmedia">
+                <source>Text &amp; Media</source>
+            </trans-unit>
+
+            <trans-unit id="contextualalternatives.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="contextualalternatives.primary">
+                <source>Primary</source>
+            </trans-unit>
+            <trans-unit id="contextualalternatives.success">
+                <source>Success</source>
+            </trans-unit>
+            <trans-unit id="contextualalternatives.info">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="contextualalternatives.warning">
+                <source>Warning</source>
+            </trans-unit>
+            <trans-unit id="contextualalternatives.danger">
+                <source>Danger</source>
+            </trans-unit>
+
+            <trans-unit id="external_media">
+                <source>External Media</source>
+            </trans-unit>
+            <trans-unit id="field.external_media_source">
+                <source>External Media Source</source>
+            </trans-unit>
+            <trans-unit id="field.external_media_ratio">
+                <source>Ratio</source>
+            </trans-unit>
+
+            <trans-unit id="field.icon">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="field.icon_position">
+                <source>Position</source>
+            </trans-unit>
+            <trans-unit id="field.icon_type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="field.icon_size">
+                <source>Size</source>
+            </trans-unit>
+            <trans-unit id="field.icon_background">
+                <source>Background</source>
+            </trans-unit>
+            <trans-unit id="field.icon_color">
+                <source>Color</source>
+            </trans-unit>
+            <trans-unit id="field.icon_background">
+                <source>Background</source>
+            </trans-unit>
+
+            <trans-unit id="option.none">
+                <source>None</source>
+            </trans-unit>
+            <trans-unit id="option.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="option.top">
+                <source>Top</source>
+            </trans-unit>
+            <trans-unit id="option.right">
+                <source>Right</source>
+            </trans-unit>
+            <trans-unit id="option.bottom">
+                <source>Bottom</source>
+            </trans-unit>
+            <trans-unit id="option.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="option.square">
+                <source>Square</source>
+            </trans-unit>
+            <trans-unit id="option.circle">
+                <source>Circle</source>
+            </trans-unit>
+            <trans-unit id="option.medium">
+                <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="option.large">
+                <source>Large</source>
+            </trans-unit>
+            <trans-unit id="option.awesome">
+                <source>Awesome</source>
+            </trans-unit>
+
+            <trans-unit id="tablelayout.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="tablelayout.basic">
+                <source>Basic</source>
+            </trans-unit>
+            <trans-unit id="tablelayout.striped">
+                <source>Striped rows</source>
+            </trans-unit>
+            <trans-unit id="tablelayout.bordered">
+                <source>Bordered table</source>
+            </trans-unit>
+            <trans-unit id="tablelayout.hover">
+                <source>Hover rows</source>
+            </trans-unit>
+            <trans-unit id="tablelayout.condensed">
+                <source>Condensed table</source>
+            </trans-unit>
+
+            <trans-unit id="listlayout.unordered">
+                <source>Unordered</source>
+            </trans-unit>
+            <trans-unit id="listlayout.ordered">
+                <source>Ordered</source>
+            </trans-unit>
+            <trans-unit id="listlayout.unstyled">
+                <source>Unstyled</source>
+            </trans-unit>
+            <trans-unit id="listlayout.inline">
+                <source>Inline</source>
+            </trans-unit>
+
+            <trans-unit id="uploadslayout.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="uploadslayout.icons">
+                <source>Display Icons</source>
+            </trans-unit>
+            <trans-unit id="uploadslayout.iconsandpreview">
+                <source>Display Icons and Preview Images</source>
+            </trans-unit>
+
+            <trans-unit id="carousellayout.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="carousellayout.small">
+                <source>Small</source>
+            </trans-unit>
+
+            <trans-unit id="field.section_frame">
+                <source>Frame</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.invisible">
+                <source>Invisible</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.rulerbefore">
+                <source>Shadowbox</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.rulerafter">
+                <source>No Frame</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.indentcenter">
+                <source>Indent center</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.indentleft">
+                <source>Indent left</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.indentright">
+                <source>Indent right</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.well">
+                <source>Well</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.jumbotron">
+                <source>Jumbotron</source>
+            </trans-unit>
+            <trans-unit id="field.section_frame.shadowbox">
+                <source>Shadowbox</source>
+            </trans-unit>
+
+            <trans-unit id="field.header_position">
+                <source>Alignment</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.center">
+                <source>Center</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="field.header_position.right">
+                <source>Right</source>
+            </trans-unit>
+
+            <trans-unit id="field.assets">
+                <source>Media elements</source>
+            </trans-unit>
+
+            <trans-unit id="tabs.background">
+                <source>Background</source>
+            </trans-unit>
+            <trans-unit id="colorpicker">
+                <source>Colorpicker</source>
+            </trans-unit>
+
+            <trans-unit id="advanced">
+                <source>Advanced</source>
+            </trans-unit>
+            <trans-unit id="settings">
+                <source>Settings</source>
+            </trans-unit>
+
+            <trans-unit id="palette.alignment">
+                <source>Alignment</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

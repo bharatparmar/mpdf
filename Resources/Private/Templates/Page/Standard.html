@@ -1,0 +1,50 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+	<f:layout name="Page" />
+
+	<f:section name="Configuration">
+		<flux:form id="standard"
+				   label="Basis Template"
+				   description="KASTENHUBER Theme Basis Template. Nicht verwenden, nur zu installations und Testzwecke.">
+			<!-- Insert fields, sheets, grid, form section objects etc. here, in this flux:form tag -->
+		</flux:form>
+		<flux:grid>
+			<!-- Edit this grid to change the "backend layout" structure -->
+			<flux:grid.row>
+				<flux:grid.column colPos="100" colspan="3" name="contentsection1" label="Content Section 1" />
+			</flux:grid.row>
+			<flux:grid.row>
+				<flux:grid.column colPos="101" colspan="3" name="contentsection2" label="Content Section 2" />
+			</flux:grid.row>
+			<flux:grid.row>
+				<flux:grid.column colPos="110" colspan="1" name="dynfooter1" label="Dyn: Footer 1" />
+				<flux:grid.column colPos="111" colspan="1" name="dynfooter2" label="Dyn: Footer 2" />
+				<flux:grid.column colPos="112" colspan="1" name="dynfooter3" label="Dyn: Footer 3" />
+			</flux:grid.row>
+		</flux:grid>
+	</f:section>
+
+	<f:section name="Main">
+		<section class="section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<v:content.render column="0" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<v:content.render column="1" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</f:section>
+</div>

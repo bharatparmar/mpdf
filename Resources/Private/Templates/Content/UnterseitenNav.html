@@ -1,0 +1,57 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+    <f:layout name="Content" />
+
+    <f:section name="Configuration">
+        <flux:form id="unterseitennav"
+                   description="Inhalts Box Element mit Bild und Titel aus Unterseiten Informationen"
+                   label="BERINGER UnterseitenNavigations - Element"
+                   options="{useTypoScript: 0, group: 'BERINGER THEME', Fluidcontent: {sorting: 100}, icon: '{f:uri.resource(path: \'Icons/Content/ImageGallery.png\')}'}"
+        >
+
+            <flux:field.input name="settings.maxItems" label="MaxItems" />
+            <flux:field.input name="settings.chunk" label="Chunk Count for Row" />
+            <flux:field.input name="settings.colclasses" label="Column Classes (col-md-...)" />
+            <flux:field.input name="settings.boxclass" label="Box Class (LinkClass)" />
+            <flux:field.input name="settings.storagePageUid" label="Storage Page UID" />
+            <flux:field.input name="settings.hidepages" label="Hide Pages with UID Array" />
+
+        </flux:form>
+    </f:section>
+
+
+    <f:section name="Preview">
+        <h2>Unterseiten Ausgabe</h2>
+    </f:section>
+
+    <f:section name="Main">
+        <v:page.menu pageUid="{settings.storagePageUid}" as="list" showHiddenInMenu="false" excludePages="{settings.hidepages}">
+            <f:for each="{list -> v:iterator.slice(length: settings.maxItems) -> v:iterator.chunk(count: settings.chunk)}" as="lists">
+                <div class="row">
+                    <f:for each="{lists}" as="pageRecord">
+                        <div class="col-md-4 col-xs-6">
+                            <f:link.page class="panel-link" pageUid="{pageRecord.uid}">
+                                <div class="panel panel-default">
+                                    <v:page.resources.fal record="{pageRecord}" field="media" as="images">
+                                        {images -> v:iterator.first() -> v:variable.set(name: 'image')}
+                                        <v:media.exists file="{image.url}">
+                                            <f:image src="{image.url}" alt="{image.name}" class="img-responsive" width="570" height="300c" />
+                                        </v:media.exists>
+                                    </v:page.resources.fal>
+                                    <div class="panel-body">
+                                        <h4>{pageRecord.title}</h4>
+                                        <f:if condition="{pageRecord.subtitle}">
+                                            <p class="text-white">{pageRecord.subtitle}</p>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </f:link.page>
+                        </div>
+                    </f:for>
+                </div>
+            </f:for>
+        </v:page.menu>
+    </f:section>
+</div>

@@ -1,0 +1,50 @@
+
+
+.ce-menu {
+  font-weight: 100;
+  & > li {
+    list-style-type: none;
+
+    & > ul {
+      float: left;
+      width: 100%;
+      padding-left: 0;
+      & > li {
+        width: 25%;
+        float: left;
+        list-style-type: none;
+        & > a {
+          font-weight: 700 !important;
+          transition: 1s all;
+          &:hover {
+            color: @kh-green;
+            transition: 1s all;
+          }
+        }
+        & > ul {
+          padding-top: 10px;
+          padding-bottom: 20px;
+          margin-left: 0;
+          padding-left: 0;
+          float: left;
+          width: 100%;
+          & > li {
+            list-style-type: none;
+            & > a {
+              transition: 1s all;
+              &:hover {
+                color: @kh-green;
+                transition: 1s all;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    & > a {
+      display: none;
+    }
+  }
+}

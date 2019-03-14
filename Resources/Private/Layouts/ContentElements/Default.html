@@ -1,0 +1,19 @@
+{namespace grcr = GRCR\KastenhuberTheme\ViewHelpers}
+<f:switch expression="{data.section_frame}">
+    <f:case value="1"><grcr:var name="sectionClass" value="invisible" /></f:case>
+    <f:case value="5"><grcr:var name="sectionClass" value="panel panel-default panel-body" /></f:case>
+    <f:case value="6"><grcr:var name="sectionClass" value="noframe" /></f:case>
+    <f:case value="10"><grcr:var name="sectionClass" value="col-xs-10 col-xs-push-1" /></f:case>
+    <f:case value="11"><grcr:var name="sectionClass" value="col-xs-9 col-xs-push-3" /></f:case>
+    <f:case value="12"><grcr:var name="sectionClass" value="col-xs-9" /></f:case>
+    <f:case value="20"><grcr:var name="sectionClass" value="well" /></f:case>
+    <f:case value="21"><grcr:var name="sectionClass" value="jumbotron" /></f:case>
+    <f:case value="22"><grcr:var name="sectionClass" value="panel panel-default panel-body" /></f:case>
+    <f:case default="TRUE"><grcr:var name="sectionClass" value="default" /></f:case>
+</f:switch>
+
+<div id="c{data.uid}" class="frame {sectionClass}">
+    <f:if condition="{data._LOCALIZED_UID}"><a id="c{data._LOCALIZED_UID}"></a></f:if>
+    <f:render section="Header" />
+    <f:render section="Main" />
+</div>

@@ -1,0 +1,290 @@
+{namespace kr=GRCR\Mosttheme\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+
+	<!--mpdf
+   <htmlpageheader name="myHTMLHeader1">
+   <table width="100%" style="vertical-align: bottom; font-family: proximanova;font-weight:700; font-size: 20px; color:#000;"><tr>
+   <td width="50%">Ihre Favoriten</td>
+
+
+
+   </td>
+   </tr></table>
+   </htmlpageheader>
+
+   <sethtmlpageheader name="myHTMLHeader1" value="on" show-this-page="1" />
+
+   mpdf-->
+
+	<div class="filter-wrap gallery-col">
+		<style type="text/css">
+			/*.main {
+				font-family:'sans-serif';
+			}*/
+
+			.logo {
+			  background: url("data:image/svg+xml;base64,[data]");
+			}
+
+			.main {
+				font-family: "proximannova";
+			}
+
+			body {
+				font-family: "proximanova";
+			}
+
+			.tfa-title-inner {
+				font-size: 16px;
+			}
+
+			ul {
+				list-style-type: none;
+				list-style: none;
+			}
+			ul li {
+				list-style-type: none;
+				list-style: none;
+			}
+
+			.check-img {
+				width: 10px;
+			}
+
+			.fa { font-family: fontawesome;}
+
+			.et{
+				color:#c00303;
+				font-family:etline;
+				font-size:40px;
+				height: 40px;
+				float: left;
+				width: 100%;
+			}
+
+			.fa-light {
+				font-family: "fontawesome-pro-light";
+				font-size: 18px;
+				height: 18px;
+			}
+
+			.color {
+				color:#c00303;
+			}
+
+			div.additional-attrib {
+				text-align: left;
+				padding: 10px;
+				width: 100%;
+				float: left;
+				margin-top: 20px;
+			}
+
+			div.additional-attrib div{
+				float: left;
+				width:33%;
+				height: auto;
+
+
+			}
+
+			div.additional-attrib div div{
+				height: 50px;
+			}
+
+			.feature-left-content {
+				//margin-top: 40px;
+				float: left;
+				text-align: left;
+				width: 100%;
+				display: block;
+			}
+
+			.label {
+				display: inline;
+				padding: 5px;
+				font-size: 75%;
+				font-weight: 700;
+				line-height: 1;
+				color: #fff;
+				text-align: center;
+				white-space: nowrap;
+				vertical-align: baseline;
+				border-radius: .25em;
+				background-color: #c00303;"
+			}
+
+			.list-none {
+				list-style-type: none;
+			}
+
+		</style>
+
+
+
+
+		<div class="row main">
+			<v:variable.set name="counter" value="0" />
+			<f:for each="{returnArray}" as="modellMenu">
+				<flux:form.data table="pages" field="tx_fed_page_flexform" uid="{modellMenu.uid}" as="pageConfig">
+					<div class="col-sm-4" id="remove-WB{modellMenu.uid}">
+						<div class="tfa-box panel">
+							<div class="tfa-row">
+								<div class="tfa-media" style="padding-top: 25px;">
+									<f:if condition="{pageConfig.modellImageFile}">
+										<f:then>
+											<f:image src="{pageConfig.modellImageFile}"
+													 alt="{modellMenu.title}"
+													 width="920"
+													 height="525c"
+													 class="car_model_img img-responsive" />
+										</f:then>
+										<f:else>
+											<f:image src="/fileadmin/dummy/fff.jpg"
+													 alt="Bild folgt"
+													 width="920"
+													 height="525c"
+													 class="car_model_img img-responsive" />
+										</f:else>
+									</f:if>
+								</div>
+								<div class="tfa-title" style="padding-bottom: 10px;">
+									<div class="tfa-title-inner">
+										<div class="title" style="font-size: 26px;">
+											<strong>{pageConfig.modellname}</strong>&nbsp;
+											<strong class="color">{pageConfig.modelltyp}</strong>
+											<br />
+										</div>
+										<small style="font-size: 21px;" class="color">{pageConfig.teasertext}</small>
+										<p>{pageConfig.kurzbeschreibung}</p>
+									</div>
+								</div>
+
+								<div class="tfa-content">
+
+									<div style="font-family: proximanova; text-align: left;vertical-align: top;width:100%">
+										<div style="margin: 0 25px;">
+											<div style="float: left; width: 50%; font-size: 12px;">
+												<f:format.stripTags>
+													<f:format.crop maxCharacters="600" append=" ...">{pageConfig.langbeschreibung}</f:format.crop>
+												</f:format.stripTags>
+											</div>
+											<div style="float: left;">
+												<ul class="list-none" style="margin: 0;font-size: 12px;">
+													<li>
+														<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+
+														{f:translate(key:'LLL:EXT:mosttheme/Resources/Private/Language/locallang.xlf:lbl_geeignet_fur')} <strong>{pageConfig.anzahlpersonen}</strong> {f:translate(key:'LLL:EXT:mosttheme/Resources/Private/Language/locallang.xlf:lbl_personen')}</li>
+													<f:if condition="{pageConfig.dachterrasse}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'LLL:EXT:mosttheme/Resources/Private/Language/locallang.xlf:lbl_dachterrasse')}
+														</li>
+													</f:if>
+													<li>											<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+														{f:translate(key:'LLL:EXT:mosttheme/Resources/Private/Language/locallang.xlf:lbl_nutzflache_ca')} <strong>{pageConfig.nutzflaeche}qm</strong></li>
+
+													<f:if condition="{pageConfig.bordgenerator}">
+														<li>
+															<f:if condition="{pageConfig.bordgeneratoroptional}">
+																<f:then>
+																	<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+																	{f:translate(key:'LLL:EXT:mosttheme/Resources/Private/Language/locallang.xlf:lbl_optional_mit_bordgenerator')}: <strong>{pageConfig.bordgenerator}</strong>
+																</f:then>
+																<f:else>
+																	<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+																	{f:translate(key:'LLL:EXT:mosttheme/Resources/Private/Language/locallang.xlf:lbl_mit_bordgenerator')}: <strong>{pageConfig.bordgenerator}</strong>
+																</f:else>
+															</f:if>
+															<f:if condition="{pageConfig.frontodereingangverglast}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_front_oder_eingang_verglast', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													<f:if condition="{pageConfig.meetingraum}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_meetingraumteamabteil', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													<f:if condition="{pageConfig.klimaanlage}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_klimatisierung', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													<f:if condition="{pageConfig.heizung}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_heizung', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													<f:if condition="{pageConfig.kueche}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_kuche_oder_kuhlschrank', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													<f:if condition="{pageConfig.trailertent}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_trailertent_ebenerdig', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													<f:if condition="{pageConfig.multimedia}">
+														<li>
+															<span class="fa-light color" style="width: 100%;">&#xf14a;</span>
+															{f:translate(key:'lbl_ledlcd_monitor', extensionName: 'mosttheme')}
+														</li>
+													</f:if>
+													</li>
+													</f:if>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="additional-attrib" style="padding-top: 20px;">
+						<div>
+							<div class="et color" style="width: 100%;">&#xe059;</div>
+							<div class="feature-left-content" style="width: 100%;">
+								<h4><strong>Einsatzbereit in ca.</strong><br>{pageConfig.einsatzbereit} Min.</h4>
+							</div>
+						</div>
+						<div>
+							<div class="et color" style="width: 100%;">&#xe019;</div>
+							<div class="feature-left-content" style="width: 100%;">
+								<h4><strong>Nutzfläche</strong><br>{pageConfig.nutzflaeche}m<sup>2</sup></h4>
+							</div>
+						</div>
+						<div>
+							<div class="et color" style="width: 100%;">&#xe040;</div>
+							<div class="feature-left-content" style="width: 100%;">
+								<h4><strong>Geeignet für ca.</strong><br>{pageConfig.anzahlpersonen} Personen</h4>
+							</div>
+						</div>
+					</div>
+
+
+
+				</flux:form.data>
+				<v:variable.set name="counter" value="{v:math.sum(a: counter, fail: 1, b: 1)}" />
+				<f:if condition="{counter} < {returnArray->f:count()}">
+					<pagebreak resetpagenum="1" suppress="off" />
+				</f:if>
+			</f:for>
+		</div>
+	</div>
+</div>

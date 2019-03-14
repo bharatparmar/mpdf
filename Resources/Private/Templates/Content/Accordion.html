@@ -1,0 +1,62 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+	<f:layout name="Content" />
+
+	<f:section name="Configuration">
+		<flux:form id="beringeraccordion"
+                   label="Accordion Element"
+                   description="Accordion erstellen und Content Elemente einfügen"
+				   options="{group: 'BERINGER THEME', icon: '{f:uri.resource(path: \'Icons/Content/Accordion.png\')}'}">
+			<flux:form.sheet name="panels" label="Panels">
+				<flux:form.section name="panels" label="Panels">
+					<flux:form.object name="panel" label="Panel">
+						<flux:field.input name="title" label="Title" />
+						<flux:field.checkbox name="active" label="Active" />
+						<flux:field.file name="image" label="Bild" showThumbnails="1" useFalRelation="1"  />
+					</flux:form.object>
+				</flux:form.section>
+			</flux:form.sheet>
+			<flux:grid>
+				<v:condition.type.isArray value="{panels}">
+					<f:for each="{panels}" as="panel" iteration="iteration" key="id">
+						<flux:grid.row>
+							<flux:grid.column name="content.{id}" label="{f:if(condition: panel.panel.title, then: panel.panel.title, else: 'Content, panel {id}')}" />
+						</flux:grid.row>
+					 </f:for>
+				</v:condition.type.isArray>
+			</flux:grid>
+		</flux:form>
+	</f:section>
+
+	<f:section name="Preview">
+	</f:section>
+
+	<f:section name="Main">
+		<div class="panel-group" id="accordion-{record.uid}" role="tablist" aria-multiselectable="true">
+			<f:for each="{panels}" as="panel" iteration="iteration" key="id">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<f:if condition="{panel.panel.image}">
+							<f:image src="{panel.panel.image}" width="100" height="85m" class="panel-heading-image img-responsive" alt="{panel.image.alternative}" />
+						</f:if>
+						<h4 class="panel-title">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-{record.uid}"
+							   href="#panel-{record.uid}-{id}">
+								{panel.panel.title}
+							</a>
+						</h4>
+					</div>
+					<div id="panel-{record.uid}-{id}" class="panel-collapse collapse{f:if(condition: '{panel.panel.active}', then: ' in')}">
+						<div class="panel-body">
+							<flux:content.render area="content.{id}" />
+						</div>
+					</div>
+				</div>
+			</f:for>
+		</div>
+	</f:section>
+
+</div>

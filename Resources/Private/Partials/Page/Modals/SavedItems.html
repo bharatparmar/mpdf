@@ -1,0 +1,66 @@
+<div class="modal fade" id="savedItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="form-inline">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{f:translate(key:'lbl_saved_vehicles')}</h4>
+            </div>
+            <div class="modal-body" id="displaySavedItems"></div>
+            <div class="modal-body" id="contactForm" style="display:none;">
+
+                <f:form action="" name="contactform" id="contactform" >
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="company">Firma:</label>
+                            <f:form.textfield name="company" class="form-control" required="required"  />
+                        </div>
+                        <label for="name">Name:</label>
+                        <f:form.textfield name="name" class="form-control" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMail:</label>
+                        <f:form.textfield name="email" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ihre Nachricht an uns:</label>
+                        <f:form.textarea name="message" class="form-control" />
+                    </div>
+                    <div class="checkbox">
+                        <label for="checkbox">Mit Absenden des Formulars bestätigen Sie unsere <f:link.page pageUid="25" target="_blank" >{f:translate(key:'lbl_gdpr')}</f:link.page><f:form.checkbox name="terms" value="1" /></label>
+                    </div>
+                    <div class="form-group">
+                        <span type="button" class="btn btn-primary" id="submit-contactform" onclick="$(this).submit();">{f:translate(key:'lbl_save_as_pdf')}</span>
+
+                        <f:comment>
+                            <f:form.submit name="submit" value="{f:translate(key:'lbl_save_as_pdf')}" class="btn btn-primary" id="submit-contactform" />
+
+                        </f:comment>
+                    </div>
+                </f:form>
+
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <f:form action="savePdf" controller="Ajax" extensionName="mosttheme" pluginName="Pi1"  pageType="666" id="SavedItemFrm" class="form-inline">
+                    <div class="form-group">
+                        <input type="hidden" name="savedHidden" id="savedHidden" value=""/>
+                        <f:comment>
+                            <input type="email" class="form-control" name="pdf-email" id="pdf-email" placeholder="Email" />
+                        </f:comment>
+                    </div>
+                    <f:comment>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="gdpr"> GDPR Confirm</label>
+                        </div>
+                        <span type="button" class="btn btn-primary" id="sendEmailPdf">{f:translate(key:'lbl_send_as_email')}</span>
+
+                    </f:comment>
+
+                    <span type="button" class="btn btn-primary" id="sendWishPdf">{f:translate(key:'lbl_save_as_pdf')}</span>
+            </div>
+            </f:form>
+        </div>
+    </div>
+</div>
+</div>
+

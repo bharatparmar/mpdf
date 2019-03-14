@@ -1,0 +1,49 @@
+######################
+#### CTYPE: IMAGE ####
+######################
+
+tt_content.image >
+tt_content.image = FLUIDTEMPLATE
+tt_content.image {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Image
+    templateRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Templates/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.templateRootPath}
+    }
+    partialRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Partials/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.partialRootPath}
+    }
+    layoutRootPaths {
+        0 = EXT:kastenhuber_theme/Resources/Private/Layouts/ContentElements/
+        10 = {$plugin.kastenhuber_theme_contentelements.view.layoutRootPath}
+    }
+
+    ################
+    ### SETTINGS ###
+    ################
+    settings {
+        media {
+            preload = {$config.preloadImages}
+        }
+        lightbox {
+            cssClass = {$plugin.kastenhuber_theme_contentelements.lightbox.cssClass}
+            prefix = {$plugin.kastenhuber_theme_contentelements.lightbox.prefix}
+        }
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = image
+        }
+    }
+
+}

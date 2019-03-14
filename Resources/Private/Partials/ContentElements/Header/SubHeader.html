@@ -1,0 +1,37 @@
+<f:if condition="{data.subheader}">
+    <f:switch expression="{data.header_layout}">
+        <f:case value="1">
+            <small class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                {data.subheader}
+            </small>
+        </f:case>
+        <f:case value="2">
+            <small class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                {data.subheader}
+            </small>
+        </f:case>
+        <f:case value="3">
+            <small class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                {data.subheader}
+            </small>
+        </f:case>
+        <f:case value="4">
+            <small class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                {data.subheader}
+            </small>
+        </f:case>
+        <f:case value="5">
+            <small class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                {data.subheader}
+            </small>
+        </f:case>
+        <f:case value="100">
+            <f:comment> -- do not show header -- </f:comment>
+        </f:case>
+        <f:case default="1">
+            <small class="{f:if(condition: data.header_position, then: 'text-{data.header_position}')}">
+                {data.subheader}
+            </small>
+        </f:case>
+    </f:switch>
+</f:if>

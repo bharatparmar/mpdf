@@ -1,0 +1,120 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+	<f:layout name="Content" />
+
+	<f:section name="Configuration">
+		<flux:form id="beringerwebshop"
+                   label="WebShop Element"
+                   description="WebShop erstellen und Content Elemente einfügen"
+				   options="{group: 'BERINGER THEME', icon: '{f:uri.resource(path: \'Icons/Content/Accordion.png\')}'}">
+
+			<flux:form.sheet name="panels" label="Panels">
+				<flux:form.section name="panels" label="Panels">
+					<flux:form.object name="panel" label="Panel">
+						<flux:field.input name="articlenumber" label="Artikelnummer" />
+						<flux:field.input name="title" label="Title" />
+						<flux:field.text name="description" label="Beschreibung" />
+						<flux:field.input name="price" label="Preis" />
+					</flux:form.object>
+				</flux:form.section>
+			</flux:form.sheet>
+
+		</flux:form>
+	</f:section>
+
+	<f:section name="Preview">
+		<div class="row">
+			<f:for each="{panels}" as="panel" iteration="iteration" key="id">
+
+				<div class="col-md-3">
+					<div class="panel article-panel">
+						<div class="panel-heading">
+							<h4>
+								<small>{panel.panel.articlenumber}</small><br />
+								{panel.panel.title}
+							</h4>
+						</div>
+					</div>
+				</div>
+
+			</f:for>
+
+		</div>
+
+	</f:section>
+
+	<f:section name="Main">
+	<div class="row">
+		<button type="button" class="btn btn-default cart" data-toggle="modal" data-target="#showCart"><f:translate id="quote.cart" extensionName="KastenhuberTheme"/></button>
+	</div>
+
+	<div id="showCart" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4><f:translate id="quote.cartTitle" extensionName="KastenhuberTheme"/></h4>
+			    </div>
+			    <div class="modal-body">
+			    	<div class="loader-container"><div class="loader"></div></div>
+			    </div>
+			    <div class="modal-footer">
+			        <button type="button" class="btn btn-default showForm" ><f:translate id="quote.send" extensionName="KastenhuberTheme"/></button>
+			    </div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+		<f:if condition="{panels}">
+			<f:then>
+				<div class="row row-eq-height">
+					<f:for each="{panels}" as="panel" iteration="iteration" key="id">
+						<div class="col-md-12 webshop-container">
+							<div class="webshopblock clearfix">
+								<div class="img-block" style="">
+									<f:if condition="{panel.panel.articlenumber}">
+										<a rel="lightbox-group-{panel.panel.articlenumber}" href="{f:uri.image(src: 'fileadmin/webshop/{panel.panel.articlenumber}.jpg', width: 800, height: 600c)}" title="{panel.panel.title}" class="lightbox" data-lightbox-width="800" data-lightbox-height="600">
+											<f:image src="fileadmin/webshop/{panel.panel.articlenumber}.jpg" width="345" height="200c" class="img-responsive" alt="{panel.image.alternative}" />
+										</a>
+									</f:if>
+								</div>
+								<div class="content-block">
+									<div class="content-title">
+										<div class="equal">
+											<h4>
+												<span class="title">{panel.panel.title}</span>
+												<small><span class="label label-default">{panel.panel.articlenumber}</span></small>
+
+											</h4>
+										</div>
+										<div class="text">
+											<p><f:format.nl2br>{panel.panel.description}</f:format.nl2br></p><br />
+										</div>
+									</div>
+								</div>
+								<div class="content-price">
+									<span class="label label-primary price">{panel.panel.price} <f:translate id="quote.pricePerItem" extensionName="KastenhuberTheme"/></span>
+									<div class="content-input">
+										<input type="text" class="item-count" value="1">
+										<a id="{panel.panel.articlenumber}" class="btn btn-default btn-appear addToCart" href="javascript:;">
+											<span> <f:translate id="quote.addToCart" extensionName="KastenhuberTheme"/> <i class="ion-heart"></i></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</f:for>
+				</div>
+			</f:then>
+			<f:else>
+				<p><f:translate id="quote.noItem" extensionName="KastenhuberTheme"/></p>
+			</f:else>
+		</f:if>
+	</f:section>
+</div>

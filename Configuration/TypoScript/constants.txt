@@ -1,0 +1,192 @@
+plugin.tx_kastenhubertheme.view {
+	templateRootPaths.0 = EXT:kastenhuber_theme/Resources/Private/Templates/
+	partialRootPaths.0 = EXT:kastenhuber_theme/Resources/Private/Partials/
+	layoutRootPaths.0 = EXT:kastenhuber_theme/Resources/Private/Layouts/
+}
+
+plugin.tx_kastenhubertheme{
+	settings{
+		Quote{
+			adminEmail = t.englhard@beringer-behaelter.de
+			adminName = Beringer Behälter
+			sendEmailtouser = 1
+			subjectAdmin = Bestellung aus beringer-behaelter.de
+			subjectUser = Bestellbestätigung
+		}
+	}
+}
+
+############################
+### CUSTOM SUBCATEGORIES ###
+###########################
+# customsubcategory=100=Page Template
+# customsubcategory=110=Logo
+# customsubcategory=120=Meta Settings
+# customsubcategory=130=File Include Path
+# customsubcategory=140=Content Elements Templates
+# customsubcategory=141=Content Element Accordion
+# customsubcategory=142=Content Element Tabs
+# customsubcategory=143=Content Element Menu
+# customsubcategory=144=Content Element General
+# customsubcategory=145=Content Element Uploads
+# customsubcategory=150=Config
+# customsubcategory=160=Theme
+# customsubcategory=180=Tracking
+# customsubcategory=190=Bootstrap Package Settings
+# customsubcategory=KastenhuberThemeExtensions=Extension Overrides
+
+############
+### PAGE ###
+############
+page {
+
+	includePath {
+		# cat=kastenhuber theme: advanced/130/100; type=string; label=Icon Include Path: Path to css files
+		icons = EXT:kastenhuber_theme/Resources/Public/Icons/
+	}
+
+	meta {
+		# cat=kastenhuber theme: basic/120/100; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
+		description =
+		# cat=kastenhuber theme: basic/120/110; type=string; label=Author: Enter the page author's name.
+		author =
+		# cat=kastenhuber theme: basic/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
+		keywords =
+		# cat=kastenhuber theme: advanced/120/100; type=string; label=viewport
+		viewport = width=device-width, initial-scale=1
+		# cat=kastenhuber theme: advanced/120/110; type=string; label=robots
+		robots = index,follow
+		# cat=kastenhuber theme: advanced/120/120; type=string; label=apple-mobile-web-app-capable
+		apple-mobile-web-app-capable = no
+		# cat=kastenhuber theme: advanced/120/130; type=string; label=compatible
+		compatible = IE=edge
+		# cat=kastenhuber theme: advanced/120/140; type=string; label=google
+		google = notranslate
+	}
+
+	tracking {
+		google {
+			# cat=kastenhuber theme: basic/180/100; type=string; label=Google: Tracking-ID
+			trackingID =
+			# cat=kastenhuber theme: basic/180/110; type=boolean; label=Google: IP-anonymisation
+			anonymizeIp = 1
+		}
+	}
+}
+
+##############
+### CONFIG ###
+##############
+config {
+	# cat=kastenhuber theme: advanced/150/110; type=boolean; label=No Cache
+	no_cache = 0
+	# cat=kastenhuber theme: advanced/150/120; type=options[Do not remove=0,Remove=1,Move to external file=external]; label=Remove default JavaScript
+	removeDefaultJS = 0
+	# cat=kastenhuber theme: advanced/150/130; type=boolean; label=Compress JavaScript
+	compressJs = 0
+	# cat=kastenhuber theme: advanced/150/140; type=boolean; label=Compress Css
+	compressCss = 1
+	# cat=kastenhuber theme: advanced/150/150; type=boolean; label=Concatenate JavaScript
+	concatenateJs = 0
+	# cat=kastenhuber theme: advanced/150/160; type=boolean; label=Concatenate Css
+	concatenateCss = 1
+	# cat=kastenhuber theme: advanced/150/170; type=boolean; label=Admin Panel
+	admPanel = 0
+	# cat=kastenhuber theme: advanced/150/180; type=options[None=,All=all,Cached=cached,Output=output]; label=Prefix local Anchors: See [http://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#prefixlocalanchors] for explanation.
+	prefixLocalAnchors = all
+	# cat=kastenhuber theme: advanced/150/190; type=string; label=Header Comment
+	headerComment = Developed by Maximilian A. Grimm | GRIMMCREATIVE - https://www.grimmcreative.com
+	# cat=kastenhuber theme: advanced/150/200; type=boolean; label=Force images preload: Preload images even when not visible on page to allow print
+	preloadImages = 1
+	# cat=kastenhuber theme: advanced/150/210; type=boolean; label=Send cache headers: Allow appropriate caching by transparent proxies and browser clients
+	sendCacheHeaders = 1
+}
+
+###############
+### FELOGIN ###
+###############
+plugin.tx_felogin_pi1 {
+	# cat=kastenhuber theme: advanced/cLogin; type=int+; label= PID of user archive: Enter the page-uid number (PID) of the folder where you keep your fe_users that are supposed to login on this site. This setting is necessary, if login is going to work!
+	storagePid =
+	# cat=kastenhuber theme: advanced/cLogin; type=; label= Login template: Enter the path for the HTML template to be used
+	templateFile = EXT:kastenhuber_theme/Resources/Private/Templates/Felogin/FrontendLogin.html
+	# cat=kastenhuber theme: advanced/cLogin; type=boolean; label=Show permanent login option
+	showPermaLogin = 1
+}
+
+#########################
+### KASTENHUBER THEME ###
+#########################
+plugin.kastenhuber_theme {
+	settings {
+		# cat=kastenhuber theme: advanced/190/100; type=boolean; label=Override LESS Variables: If enabled the variables defined in your LESS files will be overridden with the ones defined as TypoScript Constants.
+		overrideLessVariables = 1
+		# cat=kastenhuber theme: advanced/190/110; type=boolean; label=CSS source mapping: Create a CSS source map useful to debug Less in browser developer tools. Note: CSS compression will be disabled.
+		cssSourceMapping = 0
+	}
+}
+
+####################################
+### KASTENHUBER THEME EXTENSIONS ###
+####################################
+plugin.kastenhuber_theme {
+	view {
+		# cat=kastenhuber theme: advanced/KastenhuberThemeExtensions/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+		layoutRootPath = EXT:kastenhuber_theme/Resources/Private/Layouts/
+		# cat=kastenhuber theme: advanced/KastenhuberThemeExtensions/partialRootPath; type=string; label=Partial Root Path: Path to partials
+		partialRootPath = EXT:kastenhuber_theme/Resources/Private/Partials/
+		# cat=kastenhuber theme: advanced/KastenhuberThemeExtensions/templateRootPath; type=string; label=Template Root Path: Path to templates
+		templateRootPath = EXT:kastenhuber_theme/Resources/Private/Templates/
+	}
+}
+
+##########################################
+### KASTENHUBER THEME CONTENT ELEMENTS ###
+##########################################
+plugin.kastenhuber_theme_contentelements {
+	view {
+		# cat=kastenhuber theme: advanced/140/layoutRootPath; type=string; label=Layout Root Path: Path to layouts
+		layoutRootPath = EXT:kastenhuber_theme/Resources/Private/Layouts/ContentElements/
+		# cat=kastenhuber theme: advanced/140/partialRootPath; type=string; label=Partial Root Path: Path to partials
+		partialRootPath = EXT:kastenhuber_theme/Resources/Private/Partials/ContentElements/
+		# cat=kastenhuber theme: advanced/140/templateRootPath; type=string; label=Template Root Path: Path to templates
+		templateRootPath = EXT:kastenhuber_theme/Resources/Private/Templates/ContentElements/
+	}
+	lightbox {
+		# cat=kastenhuber theme: advanced/144/100; type=string; label=Lightbox Css Class
+		cssClass = lightbox
+		# cat=kastenhuber theme: advanced/144/101; type=string; label=Lightbox Group Prefix
+		prefix = lightbox-group
+	}
+	menu_thumbnails {
+		media {
+			# cat=kastenhuber theme: advanced/143/102; type=string; label=Thumbnail Menu Media Height
+			height = 250c
+			# cat=kastenhuber theme: advanced/143/103; type=string; label=Thumbnail Menu Media Width
+			width = 440c
+		}
+		title {
+			# cat=kastenhuber theme: advanced/143/104; type=string; label=Thumbnail Menu Crop Title
+			crop = 100
+		}
+		abstract {
+			# cat=kastenhuber theme: advanced/143/105; type=string; label=Thumbnail Menu Crop Abstract
+			crop = 250
+		}
+	}
+	uploads {
+		preview {
+			# cat=kastenhuber theme: advanced/145/100; type=string; label=Uploads Preview Height
+			height = 100c
+			# cat=kastenhuber theme: advanced/145/101; type=string; label=Uploads Preview Width
+			width = 100c
+		}
+	}
+}
+
+##################################
+#### BOOTSTRAP LESS CONSTANTS ####
+##################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:kastenhuber_theme/Configuration/TypoScript/Bootstrap/constants.txt">
+
+
